@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:silaiproject/screen/Profile.dart';
+import 'package:silaiproject/screen/cart.dart';
+import 'package:silaiproject/screen/menu.dart';
 import 'package:silaiproject/screen/square.dart';
 
 class homepage extends StatefulWidget {
@@ -9,15 +12,25 @@ class homepage extends StatefulWidget {
 }
 
 class _homepageState extends State<homepage> {
+  int index = 0;
+
+  final screen = [
+    homepage(),
+    cart(),
+    profile(),
+    menu(),
+  ];
+
   @override
   Widget build(BuildContext context) {
+    var data2 = null;
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 251, 251, 251),
       appBar: AppBar(
         title: Image.asset(
           'images/Silai.png',
-          height: 99.0,
-          width: 80.0,
+          height: 109.0,
+          width: 85.0,
         ),
         actions: <Widget>[
           IconButton(
@@ -48,6 +61,36 @@ class _homepageState extends State<homepage> {
           Mysquare(),
           Mysquare(),
         ],
+      ),
+      bottomNavigationBar: NavigationBarTheme(
+        data: NavigationBarThemeData(
+            labelTextStyle: MaterialStateProperty.all(
+                TextStyle(fontSize: 14, fontWeight: FontWeight.w500))),
+        child: NavigationBar(
+          height: 60,
+          backgroundColor: Colors.white,
+          selectedIndex: index,
+          onDestinationSelected: (index) => setState(() => this.index = index),
+          destinations: [
+            NavigationDestination(
+              icon: Icon(Icons.home_outlined),
+              selectedIcon: Icon(Icons.home_filled),
+              label: 'Home',
+            ),
+            NavigationDestination(
+                icon: Icon(Icons.shopping_cart_outlined),
+                selectedIcon: Icon(Icons.shopping_cart),
+                label: 'Cart'),
+            NavigationDestination(
+                icon: Icon(Icons.person),
+                selectedIcon: Icon(Icons.person),
+                label: 'Person'),
+            NavigationDestination(
+                icon: Icon(Icons.menu_outlined),
+                selectedIcon: Icon(Icons.menu),
+                label: 'Menu'),
+          ],
+        ),
       ),
     );
   }
