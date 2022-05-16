@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:silaiproject/screen/Profile.dart';
-import 'package:silaiproject/screen/cart.dart';
-import 'package:silaiproject/screen/menu.dart';
+/*import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
+
 import 'package:silaiproject/screen/square.dart';
+import 'package:geocoder/geocoder.dart';
 
 class homepage extends StatefulWidget {
   const homepage({Key? key}) : super(key: key);
@@ -16,17 +16,44 @@ class _homepageState extends State<homepage> {
 
   final screen = [
     homepage(),
-    cart(),
-    profile(),
-    menu(),
+    //cart(),
+    //profile(),
+    //menu(),
   ];
+
+  var locationMessage = "";
+  void getCurrentLocation() async {
+    var position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+    var lastPosition = await Geolocator.getLastKnownPosition();
+    print(lastPosition);
+
+    var lat = position.latitude;
+    var long = position.longitude;
+    print("$lat,$long");
+    Colors.white;
+    getAddressfromCoordinates(
+      Coordinates(lat, long),
+    );
+
+    setState(() {
+      locationMessage = "$position";
+    });
+  }
+
+  void getAddressfromCoordinates(Coordinates coordinates) async {
+    var addresses =
+        await Geocoder.local.findAddressesFromCoordinates(coordinates);
+    var first = addresses.first;
+    print("${first.featureName}");
+  }
 
   @override
   Widget build(BuildContext context) {
-    var data2 = null;
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 251, 251, 251),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Image.asset(
           'images/Silai.png',
           height: 109.0,
@@ -50,17 +77,60 @@ class _homepageState extends State<homepage> {
           )
         ],
       ),
-      body: ListView(
-        children: [
-          Mysquare(),
-          Mysquare(),
-          Mysquare(),
-          Mysquare(),
-          Mysquare(),
-          Mysquare(),
-          Mysquare(),
-          Mysquare(),
-        ],
+      body: Container(
+        child: Column(
+          children: [
+            Container(
+              height: 50.0,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(colors: [
+                  Color.fromARGB(255, 70, 3, 83),
+                  Color.fromARGB(255, 146, 54, 152),
+                ], stops: [
+                  0.5,
+                  1.0
+                ]),
+              ),
+              padding: EdgeInsets.only(left: 10.0),
+              child: Row(
+                children: [
+                  Padding(
+                      padding: EdgeInsets.only(left: 05.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          getCurrentLocation();
+                        },
+                        child: Text(
+                          "Get current location",
+                          textAlign: TextAlign.start,
+                          style: TextStyle(fontSize: 5, color: Colors.white),
+                        ),
+                      )),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text("Position :$locationMessage"),
+                ],
+              ),
+            ),
+            Container(
+              child: ListView(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                children: [
+                  Mysquare(),
+                  Mysquare(),
+                  Mysquare(),
+                  Mysquare(),
+                  Mysquare(),
+                  Mysquare(),
+                  Mysquare(),
+                  Mysquare(),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
@@ -205,4 +275,19 @@ class DataSearch extends SearchDelegate<String?> {
     );
     throw UnimplementedError();
   }
-}
+
+  Widget listview() {
+    return ListView(
+      children: [
+        Mysquare(),
+        Mysquare(),
+        Mysquare(),
+        Mysquare(),
+        Mysquare(),
+        Mysquare(),
+        Mysquare(),
+        Mysquare(),
+      ],
+    );
+  }
+}*/

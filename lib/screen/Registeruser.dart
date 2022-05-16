@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:silaiproject/screen/HomePage1.dart';
 import 'package:silaiproject/screen/homepage.dart';
 
 class RegisterUser extends StatefulWidget {
@@ -14,6 +15,7 @@ class _RegisterUserState extends State<RegisterUser> {
   final usernameEditingController = new TextEditingController();
   final ContactEditingController = new TextEditingController();
   final EmailidEditingController = new TextEditingController();
+  final AddressEditingController = new TextEditingController();
   final PasswordEditingController = new TextEditingController();
   final ConPasswordEditingController = new TextEditingController();
 
@@ -41,10 +43,10 @@ class _RegisterUserState extends State<RegisterUser> {
         fillColor: Colors.white,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(color: Color(0xFF063448)),
+          borderSide: BorderSide(color: Color(0xFFfa8919)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 2, color: Color(0xFF063448)),
+          borderSide: const BorderSide(width: 2, color: Color(0xFFfa8919)),
           borderRadius: BorderRadius.circular(15.0),
         ),
       ),
@@ -75,10 +77,10 @@ class _RegisterUserState extends State<RegisterUser> {
         fillColor: Colors.white,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(color: Color(0xFF063448)),
+          borderSide: BorderSide(color: Color(0xFFfa8919)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 2, color: Color(0xFF063448)),
+          borderSide: const BorderSide(width: 2, color: Color(0xFFfa8919)),
           borderRadius: BorderRadius.circular(15.0),
         ),
       ),
@@ -110,14 +112,18 @@ class _RegisterUserState extends State<RegisterUser> {
         fillColor: Colors.white,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(color: Color(0xFF063448)),
+          borderSide: BorderSide(color: Color(0xFFfa8919)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 2, color: Color(0xFF063448)),
+          borderSide: const BorderSide(width: 2, color: Color(0xFFfa8919)),
           borderRadius: BorderRadius.circular(15.0),
         ),
       ),
     );
+
+    /*  final AddressField = TextFormField(
+
+    )*/
 
     final passwordField = TextFormField(
       autofocus: false,
@@ -145,10 +151,10 @@ class _RegisterUserState extends State<RegisterUser> {
         fillColor: Colors.white,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(color: Color(0xFF063448)),
+          borderSide: BorderSide(color: Color(0xFFfa8919)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 2, color: Color(0xFF063448)),
+          borderSide: const BorderSide(width: 2, color: Color(0xFFfa8919)),
           borderRadius: BorderRadius.circular(15.0),
         ),
       ),
@@ -171,17 +177,17 @@ class _RegisterUserState extends State<RegisterUser> {
       textInputAction: TextInputAction.done,
       decoration: InputDecoration(
         prefixIcon: Icon(Icons.lock),
-        prefixIconColor: Color(0xFF063448),
+        prefixIconColor: Color(0xFFfa8919),
         contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Confirm Password",
         filled: true,
         fillColor: Colors.white,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(color: Color(0xFF063448)),
+          borderSide: BorderSide(color: Color(0xFFfa8919)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 2, color: Color(0xFF063448)),
+          borderSide: const BorderSide(width: 2, color: Color(0xFFfa8919)),
           borderRadius: BorderRadius.circular(15.0),
         ),
       ),
@@ -190,13 +196,13 @@ class _RegisterUserState extends State<RegisterUser> {
     final SignupButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(25),
-      color: Color(0xFF063448),
+      color: Color(0xFFfa8919),
       child: MaterialButton(
         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => homepage()));
+              context, MaterialPageRoute(builder: (context) => HomePage1()));
         },
         child: Text(
           "Sign-up",
@@ -208,11 +214,11 @@ class _RegisterUserState extends State<RegisterUser> {
     );
 
     return Scaffold(
-      backgroundColor: Color(0xFF6d96cf),
+      backgroundColor: Colors.white,
       body: Center(
         child: SingleChildScrollView(
           child: Container(
-            color: Color(0xFF6d96cf),
+            color: Colors.white,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Form(
@@ -227,7 +233,7 @@ class _RegisterUserState extends State<RegisterUser> {
                       style: TextStyle(
                         fontSize: 40,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF063448),
+                        color: Color(0xFFfa8919),
                       ),
                     ),
                     SizedBox(

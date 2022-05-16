@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         ),
         nextScreen: Loginscreen(),
         splashTransition: SplashTransition.scaleTransition,
-        backgroundColor: Color(0xFF6f90bd),
+        backgroundColor: Colors.white,
         duration: 800,
       ),
     );

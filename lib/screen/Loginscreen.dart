@@ -24,15 +24,15 @@ class _LoginscreenState extends State<Loginscreen> {
       keyboardType: TextInputType.emailAddress,
       validator: (value) {
         color:
-        Color(0xFF063448);
+        Color(0xFFfa8919);
         if (value!.isEmpty) {
           return "Please enter your Email";
-          Color(0xFF063448);
+          Color(0xFFfa8919);
         }
         //reg expression for email validation
         if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)) {
           return "Please enter a valid email";
-          Color(0xFF063448);
+          Color(0xFFfa8919);
         }
         return null;
       },
@@ -48,10 +48,10 @@ class _LoginscreenState extends State<Loginscreen> {
         fillColor: Colors.white,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(color: Color(0xFF063448)),
+          borderSide: BorderSide(color: Color(0xFFfa8919)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 2, color: Color(0xFF063448)),
+          borderSide: const BorderSide(width: 2, color: Color(0xFFfa8919)),
           borderRadius: BorderRadius.circular(15.0),
         ),
       ),
@@ -82,10 +82,10 @@ class _LoginscreenState extends State<Loginscreen> {
         fillColor: Colors.white,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(color: Color(0xFF063448)),
+          borderSide: BorderSide(color: Color(0xFFfa8919)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 2, color: Color(0xFF063448)),
+          borderSide: const BorderSide(width: 2, color: Color(0xFFfa8919)),
           borderRadius: BorderRadius.circular(15.0),
         ),
       ),
@@ -97,7 +97,7 @@ class _LoginscreenState extends State<Loginscreen> {
       obscureText: true,
       validator: (value) {
         color:
-        Color(0xFF063448);
+        Color(0xFFfa8919);
         RegExp regex = new RegExp(r'^.{6,}$');
         if (value!.isEmpty) {
           return "Please enter your Password";
@@ -112,17 +112,17 @@ class _LoginscreenState extends State<Loginscreen> {
       textInputAction: TextInputAction.done,
       decoration: InputDecoration(
         prefixIcon: Icon(Icons.lock),
-        prefixIconColor: Color(0xFF063448),
+        prefixIconColor: Color(0xFFfa8919),
         contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Password",
         filled: true,
         fillColor: Colors.white,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(color: Color(0xFF063448)),
+          borderSide: BorderSide(color: Color(0xFFfa8919)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 2, color: Color(0xFF063448)),
+          borderSide: const BorderSide(width: 2, color: Color(0xFFfa8919)),
           borderRadius: BorderRadius.circular(15.0),
         ),
       ),
@@ -131,7 +131,7 @@ class _LoginscreenState extends State<Loginscreen> {
     final loginButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(25),
-      color: Color(0xFF063448),
+      color: Color(0xFFfa8919),
       child: MaterialButton(
         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
@@ -146,11 +146,11 @@ class _LoginscreenState extends State<Loginscreen> {
     );
 
     return Scaffold(
-      backgroundColor: Color(0xFF6d96cf),
+      backgroundColor: Colors.white,
       body: Center(
         child: SingleChildScrollView(
           child: Container(
-            color: Color(0xFF6d96cf),
+            color: Colors.white,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Form(
@@ -165,7 +165,7 @@ class _LoginscreenState extends State<Loginscreen> {
                         style: TextStyle(
                           fontSize: 40,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF063448),
+                          color: Color(0xFFfa8919),
                         ),
                       ),
                       SizedBox(
@@ -207,7 +207,7 @@ class _LoginscreenState extends State<Loginscreen> {
                             child: Text(
                               "Signup",
                               style: TextStyle(
-                                color: Color(0xFF174c63),
+                                color: Color(0xFFfa8919),
                                 fontWeight: FontWeight.bold,
                                 fontSize: 15,
                               ),

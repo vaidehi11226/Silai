@@ -14,7 +14,7 @@ class _SplashState extends State<Splash> {
       body: Container(
         height: 2000,
         width: 2500,
-        color: Color(0xFF6d96cf),
+        color: Colors.white,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceAround,

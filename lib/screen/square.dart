@@ -13,7 +13,7 @@ class _MysquareState extends State<Mysquare> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        height: 150,
+        height: 0,
         color: Colors.deepPurple[200],
       ),
     );
