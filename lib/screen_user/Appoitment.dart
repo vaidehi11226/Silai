@@ -21,7 +21,7 @@ class _AppoitnmentstatusState extends State<Appoitnmentstatus> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xEFF0F3),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Color(0xFFfa8919),
         iconTheme: IconThemeData(color: Colors.black),
@@ -58,15 +58,13 @@ class _AppoitnmentstatusState extends State<Appoitnmentstatus> {
                 },
               ),
             ),
-          ],
-        ),
-
-        /*child: Column(
+            Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
+                Text("Home Service"),
                 Radio(
                     value: "HomeService",
                     groupValue: level,
@@ -78,7 +76,7 @@ class _AppoitnmentstatusState extends State<Appoitnmentstatus> {
                 SizedBox(
                   width: 10.0,
                 ),
-                Text("Home Service"),
+                Text("Shop Service"),
                 Radio(
                     value: "ShopService",
                     groupValue: level,
@@ -90,9 +88,14 @@ class _AppoitnmentstatusState extends State<Appoitnmentstatus> {
                 SizedBox(
                   width: 10.0,
                 ),
-                Text("Shop Service"),*/
+          ],
+        ),
+          ],
       ),
-    );
+          ],
+      ),
+      ),
+      );
   }
 
   Future<void> _selectTime(BuildContext context) async {

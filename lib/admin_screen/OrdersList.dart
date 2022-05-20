@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Favrouites extends StatefulWidget {
-  const Favrouites({Key? key}) : super(key: key);
+class OrdersList extends StatefulWidget {
+  const OrdersList({ Key? key }) : super(key: key);
 
   @override
-  State<Favrouites> createState() => _FavrouitesState();
+  State<OrdersList> createState() => _OrdersListState();
 }
 
-class _FavrouitesState extends State<Favrouites> {
+class _OrdersListState extends State<OrdersList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +16,7 @@ class _FavrouitesState extends State<Favrouites> {
         backgroundColor: Color(0xFFfa8919),
         iconTheme: IconThemeData(color: Colors.black),
         title: Text(
-          "Favrouties",
+          "Orders List",
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,

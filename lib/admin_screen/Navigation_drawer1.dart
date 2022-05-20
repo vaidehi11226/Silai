@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:silaiproject/admin_screen/AppoiList.dart';
 import 'package:silaiproject/admin_screen/ContactStatus.dart';
 import 'package:silaiproject/admin_screen/HomePage1.dart';
+import 'package:silaiproject/admin_screen/MyAccount.dart';
+import 'package:silaiproject/admin_screen/OrdersList.dart';
+import 'package:silaiproject/admin_screen/UpcomingDue.dart';
 import 'package:silaiproject/screen_user/Loginscreen.dart';
 import 'package:silaiproject/admin_screen/Navigation_item.dart';
 
-class NavigationDrawer extends StatelessWidget {
-  const NavigationDrawer({Key? key}) : super(key: key);
+class NavigationDrawer1 extends StatelessWidget {
+  const NavigationDrawer1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +37,7 @@ class NavigationDrawer extends StatelessWidget {
               SizedBox(height: 20),
               DrawerItem(
                 name: 'My Account',
-                icon: Icons.favorite,
+                icon: Icons.account_circle,
                 onPressed: () => onItemPressed(context, index: 1),
               ),
               SizedBox(height: 20),
@@ -56,20 +60,20 @@ class NavigationDrawer extends StatelessWidget {
               ),
               DrawerItem(
                 name: 'Upcoming due',
-                icon: Icons.contact_support_rounded,
+                icon: Icons.notification_add,
                 onPressed: () => onItemPressed(context, index: 4),
               ),
               SizedBox(height: 20),
               DrawerItem(
                 name: 'Contact Support',
                 icon: Icons.contact_support_rounded,
-                onPressed: () => onItemPressed(context, index: 4),
+                onPressed: () => onItemPressed(context, index: 5),
               ),
               SizedBox(height: 20),
               DrawerItem(
                 name: 'Logout',
                 icon: Icons.logout,
-                onPressed: () => onItemPressed(context, index: 5),
+                onPressed: () => onItemPressed(context, index: 6),
               ),
               SizedBox(height: 20),
             ],
@@ -89,21 +93,25 @@ class NavigationDrawer extends StatelessWidget {
         break;
       case 1:
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Favrouites()));
+            context, MaterialPageRoute(builder: (context) => MyAccount()));
         break;
       case 2:
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => Appoitnmentstatus()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => AppoinList()));
         break;
       case 3:
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => OrderStatus()));
+            context, MaterialPageRoute(builder: (context) => OrdersList()));
         break;
       case 4:
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ContactStatus()));
+            context, MaterialPageRoute(builder: (context) => UpcomingDue()));
         break;
       case 5:
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ContactStatus()));
+        break;
+      case 6:
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => Loginscreen()));
         break;
@@ -124,7 +132,7 @@ class NavigationDrawer extends StatelessWidget {
           children: [
             Text(
               "Vaidehi",
-              style: TextStyle(fontSize: 14, color: Colors.black),
+              style: TextStyle(fontSize: 14, color: Colors.white),
             )
           ],
         ),

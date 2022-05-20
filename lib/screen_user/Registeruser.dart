@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:silaiproject/admin_screen/CreateAccount/myProfile.dart';
 import 'package:silaiproject/model/usermodel.dart';
 import 'package:silaiproject/screen_user/HomePage1.dart';
 import 'package:silaiproject/screen_user/homepage.dart';
@@ -24,6 +25,7 @@ class _RegisterUserState extends State<RegisterUser> {
   final ConPasswordEditingController = new TextEditingController();
 
   final _auth = FirebaseAuth.instance;
+  var obscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -166,7 +168,7 @@ class _RegisterUserState extends State<RegisterUser> {
     final passwordField = TextFormField(
       autofocus: false,
       controller: PasswordEditingController,
-      obscureText: true,
+      obscureText: obscureText,
       validator: (value) {
         RegExp regex = new RegExp(r'^.{6,}$');
         if (value!.isEmpty) {
@@ -182,6 +184,21 @@ class _RegisterUserState extends State<RegisterUser> {
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
         prefixIcon: Icon(Icons.lock),
+        suffixIcon: GestureDetector(
+            onTap: () {
+              setState(() {
+                obscureText = !obscureText;
+              });
+            },
+            child: obscureText
+                ? const Icon(
+                    Icons.visibility_off,
+                    color: Colors.grey,
+                  )
+                : const Icon(
+                    Icons.visibility,
+                    color: Colors.grey,
+                  )),
         prefixIconColor: Color(0xFF063448),
         contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Password",
@@ -201,7 +218,7 @@ class _RegisterUserState extends State<RegisterUser> {
     final ConPasswordField = TextFormField(
       autofocus: false,
       controller: ConPasswordEditingController,
-      obscureText: true,
+      obscureText: obscureText,
       validator: (value) {
         if (ConPasswordEditingController.text !=
             PasswordEditingController.text) {
@@ -216,6 +233,21 @@ class _RegisterUserState extends State<RegisterUser> {
       decoration: InputDecoration(
         prefixIcon: Icon(Icons.lock),
         prefixIconColor: Color(0xFFfa8919),
+        suffixIcon: GestureDetector(
+            onTap: () {
+              setState(() {
+                obscureText = !obscureText;
+              });
+            },
+            child: obscureText
+                ? const Icon(
+                    Icons.visibility_off,
+                    color: Colors.grey,
+                  )
+                : const Icon(
+                    Icons.visibility,
+                    color: Colors.grey,
+                  )),
         contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Confirm Password",
         filled: true,
@@ -239,9 +271,9 @@ class _RegisterUserState extends State<RegisterUser> {
         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {
-          signup(EmailidEditingController.text, PasswordEditingController.text);
-          // Navigator.push(
-          //   context, MaterialPageRoute(builder: (context) => HomePage1()));
+          //signup(EmailidEditingController.text, PasswordEditingController.text);
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => createProfile()));
         },
         child: Text(
           "Sign-up",
@@ -322,7 +354,7 @@ class _RegisterUserState extends State<RegisterUser> {
     );
   }
 
-  void signup(String email, String password) async {
+  /*void signup(String email, String password) async {
     if (_formkey.currentState!.validate()) {
       await _auth
           .createUserWithEmailAndPassword(email: email, password: password)
@@ -357,5 +389,5 @@ class _RegisterUserState extends State<RegisterUser> {
 
     Navigator.pushAndRemoveUntil(context,
         MaterialPageRoute(builder: (context) => HomePage1()), (route) => false);
-  }
+  }*/
 }

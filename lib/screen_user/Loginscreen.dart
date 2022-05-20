@@ -21,6 +21,8 @@ class _LoginscreenState extends State<Loginscreen> {
 
   final _auth = FirebaseAuth.instance;
 
+  var obscureText = true;
+
   @override
   Widget build(BuildContext context) {
     final emailField = TextFormField(
@@ -99,7 +101,7 @@ class _LoginscreenState extends State<Loginscreen> {
     final passwordField = TextFormField(
       autofocus: false,
       controller: passwordController,
-      obscureText: true,
+      obscureText: obscureText,
       validator: (value) {
         color:
         Color(0xFFfa8919);
@@ -118,6 +120,21 @@ class _LoginscreenState extends State<Loginscreen> {
       decoration: InputDecoration(
         prefixIcon: Icon(Icons.lock),
         prefixIconColor: Color(0xFFfa8919),
+        suffixIcon: GestureDetector(
+            onTap: () {
+              setState(() {
+                obscureText = !obscureText;
+              });
+            },
+            child: obscureText
+                ? const Icon(
+                    Icons.visibility_off,
+                    color: Colors.grey,
+                  )
+                : const Icon(
+                    Icons.visibility,
+                    color: Colors.grey,
+                  )),
         contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Password",
         filled: true,

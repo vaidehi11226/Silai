@@ -11,7 +11,7 @@ class _ContactStatusState extends State<ContactStatus> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xEFF0F3),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Color(0xFFfa8919),
         iconTheme: IconThemeData(color: Colors.black),
