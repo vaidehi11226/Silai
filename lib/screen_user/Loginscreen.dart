@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:silaiproject/screen/Registeruser.dart';
+import 'package:silaiproject/screen_user/HomePage1.dart';
+import 'package:silaiproject/screen_user/Registeruser.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Loginscreen extends StatefulWidget {
   const Loginscreen({Key? key}) : super(key: key);
@@ -11,10 +14,12 @@ class Loginscreen extends StatefulWidget {
 class _LoginscreenState extends State<Loginscreen> {
   final _formkey = GlobalKey<FormState>();
 
-  final TextEditingController ContactEditingController =
-      new TextEditingController();
+  /*final TextEditingController ContactEditingController =
+      new TextEditingController();*/
   final TextEditingController emailController = new TextEditingController();
   final TextEditingController passwordController = new TextEditingController();
+
+  final _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +62,7 @@ class _LoginscreenState extends State<Loginscreen> {
       ),
     );
 
-    final ContactField = TextFormField(
+    /*final ContactField = TextFormField(
       autofocus: false,
       controller: ContactEditingController,
       keyboardType: TextInputType.number,
@@ -89,7 +94,7 @@ class _LoginscreenState extends State<Loginscreen> {
           borderRadius: BorderRadius.circular(15.0),
         ),
       ),
-    );
+    );*/
 
     final passwordField = TextFormField(
       autofocus: false,
@@ -135,7 +140,9 @@ class _LoginscreenState extends State<Loginscreen> {
       child: MaterialButton(
         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
-        onPressed: () {},
+        onPressed: () {
+          signIn(emailController.text, passwordController.text);
+        },
         child: Text(
           "Login",
           textAlign: TextAlign.center,
@@ -177,10 +184,10 @@ class _LoginscreenState extends State<Loginscreen> {
                       SizedBox(
                         height: 5,
                       ),
-                      ContactField,
+                      /*ContactField,
                       SizedBox(
                         height: 20,
-                      ),
+                      ),*/
                       emailField,
                       SizedBox(
                         height: 20,
@@ -222,5 +229,21 @@ class _LoginscreenState extends State<Loginscreen> {
         ),
       ),
     );
+  }
+
+  //Login function
+  void signIn(String email, String password) async {
+    if (_formkey.currentState!.validate()) {
+      await _auth
+          .signInWithEmailAndPassword(email: email, password: password)
+          .then((uid) => {
+                Fluttertoast.showToast(msg: "Login Successful"),
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => HomePage1())),
+              })
+          .catchError((e) {
+        Fluttertoast.showToast(msg: e!.message);
+      });
+    }
   }
 }

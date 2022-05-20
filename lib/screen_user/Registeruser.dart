@@ -1,6 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:silaiproject/screen/HomePage1.dart';
-import 'package:silaiproject/screen/homepage.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:silaiproject/model/usermodel.dart';
+import 'package:silaiproject/screen_user/HomePage1.dart';
+import 'package:silaiproject/screen_user/homepage.dart';
 
 class RegisterUser extends StatefulWidget {
   const RegisterUser({Key? key}) : super(key: key);
@@ -18,6 +22,8 @@ class _RegisterUserState extends State<RegisterUser> {
   final AddressEditingController = new TextEditingController();
   final PasswordEditingController = new TextEditingController();
   final ConPasswordEditingController = new TextEditingController();
+
+  final _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -121,9 +127,41 @@ class _RegisterUserState extends State<RegisterUser> {
       ),
     );
 
-    /*  final AddressField = TextFormField(
-
-    )*/
+    final AddressField = TextFormField(
+      autofocus: false,
+      controller: AddressEditingController,
+      keyboardType: TextInputType.multiline,
+      minLines: 1,
+      maxLines: 5,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return "Please enter contact no.";
+        }
+        //reg expression for email validation
+        if (value.length != 10) {
+          return "Mobile Number must be of 10 digit";
+        }
+      },
+      onSaved: (value) {
+        AddressEditingController.text = value!;
+      },
+      textInputAction: TextInputAction.next,
+      decoration: InputDecoration(
+        prefixIcon: Icon(Icons.location_city_rounded),
+        contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+        hintText: "Address",
+        filled: true,
+        fillColor: Colors.white,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.0),
+          borderSide: BorderSide(color: Color(0xFFfa8919)),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(width: 2, color: Color(0xFFfa8919)),
+          borderRadius: BorderRadius.circular(15.0),
+        ),
+      ),
+    );
 
     final passwordField = TextFormField(
       autofocus: false,
@@ -201,8 +239,9 @@ class _RegisterUserState extends State<RegisterUser> {
         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => HomePage1()));
+          signup(EmailidEditingController.text, PasswordEditingController.text);
+          // Navigator.push(
+          //   context, MaterialPageRoute(builder: (context) => HomePage1()));
         },
         child: Text(
           "Sign-up",
@@ -257,6 +296,10 @@ class _RegisterUserState extends State<RegisterUser> {
                     SizedBox(
                       height: 15,
                     ),
+                    AddressField,
+                    SizedBox(
+                      height: 15,
+                    ),
                     passwordField,
                     SizedBox(
                       height: 15,
@@ -277,5 +320,42 @@ class _RegisterUserState extends State<RegisterUser> {
         ),
       ),
     );
+  }
+
+  void signup(String email, String password) async {
+    if (_formkey.currentState!.validate()) {
+      await _auth
+          .createUserWithEmailAndPassword(email: email, password: password)
+          .then((value) => {
+                postDetailsToFirestore(),
+              })
+          .catchError((e) {
+        Fluttertoast.showToast(msg: e!.message);
+      });
+    }
+  }
+
+  postDetailsToFirestore() async {
+    //calling firestore
+    //calling user model
+    //sending values
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+    User? user = _auth.currentUser;
+    UserModel userModel = UserModel();
+
+    //writing values
+    userModel.Name = usernameEditingController.text;
+    userModel.Contact = user!.phoneNumber;
+    userModel.Email = user.email;
+    userModel.Address = AddressEditingController.text;
+
+    await firebaseFirestore
+        .collection("users")
+        .doc(user.uid)
+        .set(userModel.toMap());
+    Fluttertoast.showToast(msg: "Account created succesfully :) ");
+
+    Navigator.pushAndRemoveUntil(context,
+        MaterialPageRoute(builder: (context) => HomePage1()), (route) => false);
   }
 }

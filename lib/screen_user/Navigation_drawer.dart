@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:silaiproject/screen/Appoitment.dart';
-import 'package:silaiproject/screen/ContactStatus.dart';
-import 'package:silaiproject/screen/Favrouties.dart';
-import 'package:silaiproject/screen/HomePage1.dart';
-import 'package:silaiproject/screen/Loginscreen.dart';
-import 'package:silaiproject/screen/Navigation_item.dart';
-import 'package:silaiproject/screen/OrderStatus.dart';
+import 'package:silaiproject/screen_user/Appoitment.dart';
+import 'package:silaiproject/screen_user/ContactStatus.dart';
+import 'package:silaiproject/screen_user/Favrouties.dart';
+import 'package:silaiproject/screen_user/HomePage1.dart';
+import 'package:silaiproject/screen_user/Loginscreen.dart';
+import 'package:silaiproject/screen_user/Navigation_item.dart';
+import 'package:silaiproject/screen_user/OrderStatus.dart';
 
 class NavigationDrawer extends StatelessWidget {
   const NavigationDrawer({Key? key}) : super(key: key);

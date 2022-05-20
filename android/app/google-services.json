@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "736146345454",
+    "project_id": "silaifinalproject",
+    "storage_bucket": "silaifinalproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736146345454:android:7647b592674af5c80652ff",
+        "android_client_info": {
+          "package_name": "com.example.silaiproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736146345454-8i6ks9in4tcgk5rj243jessu0jaqif4b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.silaiproject",
+            "certificate_hash": "6b06f1e88657e6b969c7aeefa10ff756bce660f6"
+          }
+        },
+        {
+          "client_id": "736146345454-pdgssp40uls8loj7rfu92p5iepe9v82g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxWiMUE1eiAW8MfMMzXaLKrDveLjdnnmg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736146345454-pdgssp40uls8loj7rfu92p5iepe9v82g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

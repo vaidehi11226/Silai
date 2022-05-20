@@ -1,10 +1,13 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:silaiproject/screen/Loginscreen.dart';
-import 'package:silaiproject/screen/homepage.dart';
+import 'package:silaiproject/screen_user/Loginscreen.dart';
+import 'package:silaiproject/screen_user/homepage.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
