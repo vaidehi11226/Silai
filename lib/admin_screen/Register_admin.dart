@@ -2,8 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:silaiproject/admin_screen/HomePage1.dart';
+import 'package:silaiproject/admin_screen/insideTailorAdmin/myProfile.dart';
 import 'package:silaiproject/model/usermodel.dart';
-import 'package:silaiproject/screen_user/HomePage1.dart';
 
 class RegisterUser extends StatefulWidget {
   const RegisterUser({Key? key}) : super(key: key);
@@ -270,8 +271,8 @@ class _RegisterUserState extends State<RegisterUser> {
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {
           //signup(EmailidEditingController.text, PasswordEditingController.text);
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => HomePage1()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => createProfile()));
         },
         child: Text(
           "Sign-up",

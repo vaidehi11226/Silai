@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:silaiproject/screen_user/HomePage1.dart';
-import 'package:silaiproject/screen_user/Registeruser.dart';
+import 'package:silaiproject/admin_screen/HomePage1.dart';
+import 'package:silaiproject/admin_screen/Register_admin.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-class LoginUser extends StatefulWidget {
-  const LoginUser({Key? key}) : super(key: key);
+class Loginscreen extends StatefulWidget {
+  const Loginscreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginUser> createState() => _LoginUserState();
+  State<Loginscreen> createState() => _LoginscreenState();
 }
 
-class _LoginUserState extends State<LoginUser> {
+class _LoginscreenState extends State<Loginscreen> {
   final _formkey = GlobalKey<FormState>();
 
   /*final TextEditingController ContactEditingController =

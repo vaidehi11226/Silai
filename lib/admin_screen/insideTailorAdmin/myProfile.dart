@@ -89,18 +89,6 @@ class _createProfileState extends State<createProfile> {
                             level = value.toString();
                           });
                         }),
-                    SizedBox(
-                      width: 10.0,
-                    ),
-                    Text("Others"),
-                    Radio(
-                        value: "Others",
-                        groupValue: level,
-                        onChanged: (value) {
-                          setState(() {
-                            level = value.toString();
-                          });
-                        }),
                   ],
                 ),
               ],
@@ -314,7 +302,7 @@ class _createProfileState extends State<createProfile> {
           "Create Profile",
           textAlign: TextAlign.center,
           style: TextStyle(
-              fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
+              fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
         ),
       ),
     );

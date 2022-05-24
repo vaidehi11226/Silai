@@ -1,8 +1,10 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:silaiproject/admin_screen/Mesurements/FemaleMeasurements.dart';
 import 'package:silaiproject/screen_user/Loginscreen.dart';
 import 'package:silaiproject/screen_user/homepage.dart';
+import 'package:silaiproject/start.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
           height: 1000,
           width: 1000,
         ),
-        nextScreen: Loginscreen(),
+        nextScreen: FemaleMesure(),
         splashTransition: SplashTransition.scaleTransition,
         backgroundColor: Colors.white,
         duration: 800,
