@@ -51,7 +51,78 @@ class _FemaleMesureState extends State<FemaleMesure> {
         centerTitle: true,
       ),
       body: Center(
-        child: Padding(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 100,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  "Neck",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                TextField(
+                  decoration: InputDecoration(
+                    fillColor: Colors.black,
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Text(
+              "Elbow",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Text(
+              "Arm Length",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Text(
+              "Armhole Depth",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Text(
+              "Wrist",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Text(
+              "Bust",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Text(
+              "Waist",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Text(
+              "Hip",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+          ],
+        ),
+        /*child: Padding(
           padding: const EdgeInsets.all(2.0),
           child: Container(
             width: 100.0,
@@ -78,7 +149,7 @@ class _FemaleMesureState extends State<FemaleMesure> {
                     }).toList(),
                     style: TextStyle(fontSize: 15, color: Colors.black),
                     onChanged: (clothesval) => this.clothesval = clothesval),
-                /*Column(
+                Column(
                   children: [
                     FormHelper.dropDownWidget(
                       context,
@@ -103,26 +174,26 @@ class _FemaleMesureState extends State<FemaleMesure> {
                     )
                   ],
                 ),*/
-                SizedBox(
-                  height: 15,
-                ),
-                ConstrainedBox(
-                  constraints: const BoxConstraints.tightFor(
-                    width: 70,
-                    height: 40,
-                  ),
-                  child: TextField(
+        /*SizedBox(
+          height: 15,
+        ),
+        ConstrainedBox(
+          constraints: const BoxConstraints.tightFor(
+            width: 70,
+            height: 40,
+          ),
+          child: TextField(
                     decoration: InputDecoration(
                       fillColor: Colors.black,
                       border: OutlineInputBorder(),
                     ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+                  ),*/
       ),
+      //],
+      // ),
+      //),
+      //),
+      //),
     );
   }
 }

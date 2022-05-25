@@ -208,7 +208,6 @@ class _createProfileState extends State<createProfile> {
           color: Colors.black,
         ),
         labelText: "Shop Name",
-        helperText: "Shop Name can't be empty",
         hintText: "Shop Name",
       ),
     );
@@ -231,7 +230,6 @@ class _createProfileState extends State<createProfile> {
           color: Colors.black,
         ),
         labelText: "Experience",
-        helperText: "Work Experience can't be empty",
         hintText: "Work Experience",
       ),
     );
@@ -257,7 +255,6 @@ class _createProfileState extends State<createProfile> {
           color: Colors.black,
         ),
         labelText: "Type of Clothes",
-        helperText: "Type of Clothes stich can't be empty",
         hintText: "Types of Clothes stich",
       ),
     );
@@ -280,7 +277,6 @@ class _createProfileState extends State<createProfile> {
           color: Colors.black,
         ),
         labelText: "SpecialistIn",
-        helperText: "SpecialistIn can't be empty",
         hintText: "SpecialistIn",
       ),
     );
