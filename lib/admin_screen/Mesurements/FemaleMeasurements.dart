@@ -39,161 +39,165 @@ class _FemaleMesureState extends State<FemaleMesure> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Color(0xFFfa8919),
-        iconTheme: IconThemeData(color: Colors.black),
-        title: Text(
-          "Measurements",
-          style: TextStyle(color: Colors.black),
-        ),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 100,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  "Neck",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    fillColor: Colors.black,
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-              "Elbow",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-              "Arm Length",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-              "Armhole Depth",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-              "Wrist",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-              "Bust",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-              "Waist",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-              "Hip",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            ),
-          ],
-        ),
-        /*child: Padding(
-          padding: const EdgeInsets.all(2.0),
-          child: Container(
-            width: 100.0,
-            height: 100.0,
-            child: ListView(
-              children: <Widget>[
-                DropdownButton<String>(
-                    value: clothesval,
-                    isExpanded: false,
-                    items: <String>[
-                      "Blouse",
-                      "Suit",
-                      "Goan",
-                      "Burkha",
-                      "Poshak",
-                      "ChaniyaCholi",
-                      "Paticoat",
-                      "Kurti"
-                    ].map<DropdownMenuItem<String>>((clothesval) {
-                      return DropdownMenuItem(
-                        value: clothesval,
-                        child: Text(clothesval),
-                      );
-                    }).toList(),
-                    style: TextStyle(fontSize: 15, color: Colors.black),
-                    onChanged: (clothesval) => this.clothesval = clothesval),
-                Column(
-                  children: [
-                    FormHelper.dropDownWidget(
-                      context,
-                      "Select Type of Stich",
-                      this.clothesId,
-                      this.clothes,
-                      (onChangedVal) {
-                        this.clothesId = onChangedVal;
-                        print("Selected Type of Stich:  $onChangedVal");
-                      },
-                      (onValidateVal) {
-                        if (onValidateVal == null) {
-                          return "Please Select Type of Stich";
-                        }
-                        return null;
-                      },
-                      borderColor: Theme.of(context).primaryColor,
-                      borderFocusColor: Theme.of(context).primaryColor,
-                      borderRadius: 5,
-                      optionValue: "val",
-                      optionLabel: "name",
-                    )
-                  ],
-                ),*/
-        /*SizedBox(
-          height: 15,
-        ),
-        ConstrainedBox(
-          constraints: const BoxConstraints.tightFor(
-            width: 70,
-            height: 40,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Color(0xFFfa8919),
+          iconTheme: IconThemeData(color: Colors.black),
+          title: Text(
+            "Measurements",
+            style: TextStyle(color: Colors.black),
           ),
-          child: TextField(
+          centerTitle: true,
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 100,
+              ),
+              Text(
+                "Neck",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextField(
                     decoration: InputDecoration(
                       fillColor: Colors.black,
                       border: OutlineInputBorder(),
                     ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                "Elbow",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                "Arm Length",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                "Armhole Depth",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                "Wrist",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                "Bust",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                "Waist",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                "Hip",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+            ],
+          ),
+          /*child: Padding(
+            padding: const EdgeInsets.all(2.0),
+            child: Container(
+              width: 100.0,
+              height: 100.0,
+              child: ListView(
+                children: <Widget>[
+                  DropdownButton<String>(
+                      value: clothesval,
+                      isExpanded: false,
+                      items: <String>[
+                        "Blouse",
+                        "Suit",
+                        "Goan",
+                        "Burkha",
+                        "Poshak",
+                        "ChaniyaCholi",
+                        "Paticoat",
+                        "Kurti"
+                      ].map<DropdownMenuItem<String>>((clothesval) {
+                        return DropdownMenuItem(
+                          value: clothesval,
+                          child: Text(clothesval),
+                        );
+                      }).toList(),
+                      style: TextStyle(fontSize: 15, color: Colors.black),
+                      onChanged: (clothesval) => this.clothesval = clothesval),
+                  Column(
+                    children: [
+                      FormHelper.dropDownWidget(
+                        context,
+                        "Select Type of Stich",
+                        this.clothesId,
+                        this.clothes,
+                        (onChangedVal) {
+                          this.clothesId = onChangedVal;
+                          print("Selected Type of Stich:  $onChangedVal");
+                        },
+                        (onValidateVal) {
+                          if (onValidateVal == null) {
+                            return "Please Select Type of Stich";
+                          }
+                          return null;
+                        },
+                        borderColor: Theme.of(context).primaryColor,
+                        borderFocusColor: Theme.of(context).primaryColor,
+                        borderRadius: 5,
+                        optionValue: "val",
+                        optionLabel: "name",
+                      )
+                    ],
                   ),*/
+          /*SizedBox(
+            height: 15,
+          ),
+          ConstrainedBox(
+            constraints: const BoxConstraints.tightFor(
+              width: 70,
+              height: 40,
+            ),
+            child: TextField(
+                      decoration: InputDecoration(
+                        fillColor: Colors.black,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),*/
+        ),
+        //],
+        // ),
+        //),
+        //),
+        //),
       ),
-      //],
-      // ),
-      //),
-      //),
-      //),
     );
   }
 }

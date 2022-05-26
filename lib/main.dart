@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           height: 1000,
           width: 1000,
         ),
-        nextScreen: FemaleMesure(),
+        nextScreen: Start(),
         splashTransition: SplashTransition.scaleTransition,
         backgroundColor: Colors.white,
         duration: 800,

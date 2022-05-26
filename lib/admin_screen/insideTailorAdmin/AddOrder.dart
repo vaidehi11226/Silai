@@ -9,7 +9,15 @@ class AddOrder extends StatefulWidget {
 }
 
 class _AddOrderState extends State<AddOrder> {
-  bool value = false;
+  bool value1 = false;
+  bool value2 = false;
+  bool value3 = false;
+  bool value4 = false;
+  bool value5 = false;
+  bool value6 = false;
+  bool value7 = false;
+  bool value8 = false;
+  bool value9 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -75,10 +83,11 @@ class _AddOrderState extends State<AddOrder> {
                   "Blouse",
                 ),
                 Checkbox(
-                  value: value,
+                  value: value1,
+                  activeColor: Colors.green,
                   onChanged: (bool? value) {
                     setState(() {
-                      this.value = value!;
+                      this.value1 = value!;
                     });
                   },
                 ),
@@ -86,10 +95,11 @@ class _AddOrderState extends State<AddOrder> {
                   "Suit",
                 ),
                 Checkbox(
-                  value: this.value,
+                  value: value2,
+                  activeColor: Colors.green,
                   onChanged: (bool? value) {
                     setState(() {
-                      this.value = value!;
+                      this.value2 = value!;
                     });
                   },
                 ),
@@ -97,10 +107,11 @@ class _AddOrderState extends State<AddOrder> {
                   "Goan",
                 ),
                 Checkbox(
-                  value: this.value,
+                  value: value3,
+                  activeColor: Colors.green,
                   onChanged: (bool? value) {
                     setState(() {
-                      this.value = value!;
+                      this.value3 = value!;
                     });
                   },
                 ),
@@ -108,10 +119,11 @@ class _AddOrderState extends State<AddOrder> {
                   "Burkha",
                 ),
                 Checkbox(
-                  value: this.value,
+                  value: value4,
+                  activeColor: Colors.green,
                   onChanged: (bool? value) {
                     setState(() {
-                      this.value = value!;
+                      this.value4 = value!;
                     });
                   },
                 ),
@@ -129,10 +141,11 @@ class _AddOrderState extends State<AddOrder> {
                     "Poshak",
                   ),
                   Checkbox(
-                    value: this.value,
+                    value: value5,
+                    activeColor: Colors.green,
                     onChanged: (bool? value) {
                       setState(() {
-                        this.value = value!;
+                        this.value5 = value!;
                       });
                     },
                   ),
@@ -140,10 +153,11 @@ class _AddOrderState extends State<AddOrder> {
                     "Chaniya Choli",
                   ),
                   Checkbox(
-                    value: this.value,
+                    value: value6,
+                    activeColor: Colors.green,
                     onChanged: (bool? value) {
                       setState(() {
-                        this.value = value!;
+                        this.value6 = value!;
                       });
                     },
                   ),
@@ -151,10 +165,11 @@ class _AddOrderState extends State<AddOrder> {
                     "Kurti",
                   ),
                   Checkbox(
-                    value: this.value,
+                    value: value7,
+                    activeColor: Colors.green,
                     onChanged: (bool? value) {
                       setState(() {
-                        this.value = value!;
+                        this.value7 = value!;
                       });
                     },
                   ),
@@ -175,10 +190,11 @@ class _AddOrderState extends State<AddOrder> {
                     "One Piece Dress",
                   ),
                   Checkbox(
-                    value: this.value,
+                    value: value8,
+                    activeColor: Colors.green,
                     onChanged: (bool? value) {
                       setState(() {
-                        this.value = value!;
+                        this.value8 = value!;
                       });
                     },
                   ),
@@ -186,10 +202,11 @@ class _AddOrderState extends State<AddOrder> {
                     "Paticoat",
                   ),
                   Checkbox(
-                    value: this.value,
+                    value: value9,
+                    activeColor: Colors.green,
                     onChanged: (bool? value) {
                       setState(() {
-                        this.value = value!;
+                        this.value9 = value!;
                       });
                     },
                   ),
