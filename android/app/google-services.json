@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "736146345454",
-    "project_id": "silaifinalproject",
-    "storage_bucket": "silaifinalproject.appspot.com"
+    "project_number": "607505080028",
+    "project_id": "silaifinal",
+    "storage_bucket": "silaifinal.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:736146345454:android:7647b592674af5c80652ff",
+        "mobilesdk_app_id": "1:607505080028:android:3d82415758e121be715e19",
         "android_client_info": {
           "package_name": "com.example.silaiproject"
         }
       },
       "oauth_client": [
         {
-          "client_id": "736146345454-8i6ks9in4tcgk5rj243jessu0jaqif4b.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.silaiproject",
-            "certificate_hash": "6b06f1e88657e6b969c7aeefa10ff756bce660f6"
-          }
-        },
-        {
-          "client_id": "736146345454-pdgssp40uls8loj7rfu92p5iepe9v82g.apps.googleusercontent.com",
+          "client_id": "607505080028-psp4p6f3t5aoq83s2kd0cvsk3hoqb6ca.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDxWiMUE1eiAW8MfMMzXaLKrDveLjdnnmg"
+          "current_key": "AIzaSyCDI2fg7SsJ2B5DXb4Eiy6qfuew2fz5u_s"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "736146345454-pdgssp40uls8loj7rfu92p5iepe9v82g.apps.googleusercontent.com",
+              "client_id": "607505080028-psp4p6f3t5aoq83s2kd0cvsk3hoqb6ca.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

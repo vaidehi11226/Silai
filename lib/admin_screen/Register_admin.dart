@@ -183,7 +183,7 @@ class _RegisterUserState extends State<RegisterUser> {
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
         prefixIcon: Icon(Icons.lock),
-        suffixIcon: GestureDetector(
+        /*suffixIcon: GestureDetector(
             onTap: () {
               setState(() {
                 obscureText = !obscureText;
@@ -197,7 +197,7 @@ class _RegisterUserState extends State<RegisterUser> {
                 : const Icon(
                     Icons.visibility,
                     color: Colors.grey,
-                  )),
+                  )),*/
         prefixIconColor: Color(0xFF063448),
         contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Password",
@@ -353,7 +353,7 @@ class _RegisterUserState extends State<RegisterUser> {
     );
   }
 
-  /*void signup(String email, String password) async {
+  void signup(String email, String password) async {
     if (_formkey.currentState!.validate()) {
       await _auth
           .createUserWithEmailAndPassword(email: email, password: password)
@@ -388,5 +388,5 @@ class _RegisterUserState extends State<RegisterUser> {
 
     Navigator.pushAndRemoveUntil(context,
         MaterialPageRoute(builder: (context) => HomePage1()), (route) => false);
-  }*/
+  }
 }
