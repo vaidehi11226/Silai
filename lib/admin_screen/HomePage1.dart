@@ -35,13 +35,16 @@ class _HomePage1State extends State<HomePage1> {
               height: 400,
               child: ListView(
                 children: <Widget>[
+                  SizedBox(
+                    height: 50,
+                  ),
                   AddOrderButton(),
                   SizedBox(
-                    height: 70,
+                    height: 80,
                   ),
                   CustomerListButton(),
                   SizedBox(
-                    height: 70,
+                    height: 80,
                   ),
                   LatestDesignButton(),
                 ],

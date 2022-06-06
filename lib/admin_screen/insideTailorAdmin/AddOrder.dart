@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:silaiproject/admin_screen/Mesurements/FemaleMeasurements.dart';
-import 'package:silaiproject/admin_screen/Mesurements/measurebutton.dart';
+import 'package:silaiproject/admin_screen/AfterMesurements/measurebutton.dart';
 
 class AddOrder extends StatefulWidget {
   const AddOrder({Key? key}) : super(key: key);

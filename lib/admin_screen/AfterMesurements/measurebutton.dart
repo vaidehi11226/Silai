@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:silaiproject/admin_screen/Mesurements/FemaleMeasurements.dart';
+import 'package:silaiproject/admin_screen/AfterMesurements/FemaleMeasurements.dart';
 
 class mesureButton extends StatefulWidget {
   const mesureButton({Key? key}) : super(key: key);
@@ -46,7 +46,7 @@ class _mesureButtonState extends State<mesureButton> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => FemaleMesure()));
+                                builder: (context) => measurements()));
                       },
                       child: Text('Blouse'),
                     ),
@@ -64,7 +64,7 @@ class _mesureButtonState extends State<mesureButton> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => FemaleMesure()));
+                                builder: (context) => measurements()));
                       },
                       child: Text('Suit'),
                     ),
@@ -88,7 +88,7 @@ class _mesureButtonState extends State<mesureButton> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => FemaleMesure()));
+                                builder: (context) => measurements()));
                       },
                       child: Text('Gaon'),
                     ),
@@ -106,7 +106,7 @@ class _mesureButtonState extends State<mesureButton> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => FemaleMesure()));
+                                builder: (context) => measurements()));
                       },
                       child: Text('Burkha'),
                     ),
@@ -129,7 +129,7 @@ class _mesureButtonState extends State<mesureButton> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => FemaleMesure()));
+                                builder: (context) => measurements()));
                       },
                       child: Text('Poshak'),
                     ),
@@ -147,7 +147,7 @@ class _mesureButtonState extends State<mesureButton> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => FemaleMesure()));
+                                builder: (context) => measurements()));
                       },
                       child: Text('ChaniyaCholi'),
                     ),
@@ -170,7 +170,7 @@ class _mesureButtonState extends State<mesureButton> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => FemaleMesure()));
+                                builder: (context) => measurements()));
                       },
                       child: Text('Paticoat'),
                     ),
@@ -188,7 +188,7 @@ class _mesureButtonState extends State<mesureButton> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => FemaleMesure()));
+                                builder: (context) => measurements()));
                       },
                       child: Text('Kurti'),
                     ),

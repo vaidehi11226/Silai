@@ -62,7 +62,7 @@ class _RegisterUserState extends State<RegisterUser> {
     final ContactField = TextFormField(
       autofocus: false,
       controller: ContactEditingController,
-      keyboardType: TextInputType.number,
+      keyboardType: TextInputType.phone,
       validator: (value) {
         if (value!.isEmpty) {
           return "Please enter contact no.";
@@ -136,11 +136,7 @@ class _RegisterUserState extends State<RegisterUser> {
       maxLines: 5,
       validator: (value) {
         if (value!.isEmpty) {
-          return "Please enter contact no.";
-        }
-        //reg expression for email validation
-        if (value.length != 10) {
-          return "Mobile Number must be of 10 digit";
+          return "Please enter your Address ";
         }
       },
       onSaved: (value) {
@@ -297,6 +293,9 @@ class _RegisterUserState extends State<RegisterUser> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
+                    SizedBox(
+                      height: 10,
+                    ),
                     Text(
                       "Register",
                       textAlign: TextAlign.center,

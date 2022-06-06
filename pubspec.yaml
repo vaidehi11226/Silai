@@ -42,6 +42,7 @@ dependencies:
   fluttertoast: ^8.0.9
   image_picker: ^0.8.5+3
   snippet_coder_utils: ^1.0.12
+  dropdown_button2: ^1.0.0
 
 dev_dependencies:
   flutter_test:

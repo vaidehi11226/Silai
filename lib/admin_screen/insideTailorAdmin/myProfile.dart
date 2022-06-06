@@ -29,6 +29,9 @@ class _createProfileState extends State<createProfile> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                SizedBox(
+                  height: 30,
+                ),
                 Text(
                   "Profile Details",
                   textAlign: TextAlign.center,
@@ -41,20 +44,21 @@ class _createProfileState extends State<createProfile> {
               ],
             ),
             SizedBox(
-              height: 25,
+              height: 50,
             ),
             imageProfile(),
             SizedBox(
-              height: 25,
+              height: 35,
             ),
             nameTextField(),
             SizedBox(
-              height: 15,
+              height: 35,
             ),
             workexperinecTextField(),
             SizedBox(
-              height: 15,
+              height: 35,
             ),
+            /*
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,14 +99,14 @@ class _createProfileState extends State<createProfile> {
             ),
             SizedBox(
               height: 15,
-            ),
+            ),*/
             TypesofoutfitsTextField(),
             SizedBox(
-              height: 15,
+              height: 35,
             ),
             SpecialistInTextField(),
             SizedBox(
-              height: 30,
+              height: 50,
             ),
             CreateProfileButton(),
           ],
