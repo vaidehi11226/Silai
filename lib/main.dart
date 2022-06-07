@@ -1,6 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:silaiproject/admin_screen/HomePage1.dart';
 import 'package:silaiproject/screen_user/Loginscreen.dart';
 import 'package:silaiproject/screen_user/homepage.dart';
 import 'package:silaiproject/start.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
           height: 1000,
           width: 1000,
         ),
-        nextScreen: Start(),
+        nextScreen: HomePage1(),
         splashTransition: SplashTransition.scaleTransition,
         backgroundColor: Colors.white,
         duration: 800,

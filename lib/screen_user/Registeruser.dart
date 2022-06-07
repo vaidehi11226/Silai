@@ -265,9 +265,7 @@ class _RegisterUserState extends State<RegisterUser> {
         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {
-          //signup(EmailidEditingController.text, PasswordEditingController.text);
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => HomePage1()));
+          signup(EmailidEditingController.text, PasswordEditingController.text);
         },
         child: Text(
           "Sign-up",
@@ -348,7 +346,7 @@ class _RegisterUserState extends State<RegisterUser> {
     );
   }
 
-  /*void signup(String email, String password) async {
+  void signup(String email, String password) async {
     if (_formkey.currentState!.validate()) {
       await _auth
           .createUserWithEmailAndPassword(email: email, password: password)
@@ -383,5 +381,5 @@ class _RegisterUserState extends State<RegisterUser> {
 
     Navigator.pushAndRemoveUntil(context,
         MaterialPageRoute(builder: (context) => HomePage1()), (route) => false);
-  }*/
+  }
 }

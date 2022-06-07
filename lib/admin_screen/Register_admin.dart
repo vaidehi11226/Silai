@@ -4,16 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:silaiproject/admin_screen/HomePage1.dart';
 import 'package:silaiproject/admin_screen/insideTailorAdmin/myProfile.dart';
+import 'package:silaiproject/model/adminmodel.dart';
 import 'package:silaiproject/model/usermodel.dart';
 
-class RegisterUser extends StatefulWidget {
-  const RegisterUser({Key? key}) : super(key: key);
+class RegisterAdmin extends StatefulWidget {
+  const RegisterAdmin({Key? key}) : super(key: key);
 
   @override
-  State<RegisterUser> createState() => _RegisterUserState();
+  State<RegisterAdmin> createState() => _RegisterAdminState();
 }
 
-class _RegisterUserState extends State<RegisterUser> {
+class _RegisterAdminState extends State<RegisterAdmin> {
   final _formkey = GlobalKey<FormState>();
 
   final usernameEditingController = new TextEditingController();
@@ -266,9 +267,7 @@ class _RegisterUserState extends State<RegisterUser> {
         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {
-          //signup(EmailidEditingController.text, PasswordEditingController.text);
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => createProfile()));
+          signup(EmailidEditingController.text, PasswordEditingController.text);
         },
         child: Text(
           "Sign-up",
@@ -371,21 +370,23 @@ class _RegisterUserState extends State<RegisterUser> {
     //sending values
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
     User? user = _auth.currentUser;
-    UserModel userModel = UserModel();
+    AdminModel adminModel = AdminModel();
 
     //writing values
-    userModel.Name = usernameEditingController.text;
-    userModel.Contact = user!.phoneNumber;
-    userModel.Email = user.email;
-    userModel.Address = AddressEditingController.text;
+    adminModel.Name = usernameEditingController.text;
+    adminModel.Contact = user!.phoneNumber;
+    adminModel.Email = user.email;
+    adminModel.Address = AddressEditingController.text;
 
     await firebaseFirestore
-        .collection("users")
+        .collection("admin")
         .doc(user.uid)
-        .set(userModel.toMap());
+        .set(adminModel.toMap());
     Fluttertoast.showToast(msg: "Account created succesfully :) ");
 
-    Navigator.pushAndRemoveUntil(context,
-        MaterialPageRoute(builder: (context) => HomePage1()), (route) => false);
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => createProfile()),
+        (route) => false);
   }
 }

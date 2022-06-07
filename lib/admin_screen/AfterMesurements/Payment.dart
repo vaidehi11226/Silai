@@ -25,24 +25,26 @@ class _paymentState extends State<payment> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Color(0xFFfa8919),
-        iconTheme: IconThemeData(color: Colors.black),
-        title: Text(
-          "Payment",
-          style: TextStyle(color: Colors.black),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Color(0xFFfa8919),
+          iconTheme: IconThemeData(color: Colors.black),
+          title: Text(
+            "Payment",
+            style: TextStyle(color: Colors.black),
+          ),
+          centerTitle: true,
         ),
-        centerTitle: true,
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            ListView(
-              shrinkWrap: true,
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+          child: NotificationListener<OverscrollIndicatorNotification>(
+            onNotification: ((overscroll) {
+              overscroll.disallowIndicator();
+              return true;
+            }),
+            child: ListView(
               children: [
                 SizedBox(
                   height: 100,
@@ -74,7 +76,7 @@ class _paymentState extends State<payment> {
                 bill(),
               ],
             ),
-          ],
+          ),
         ),
       ),
     );

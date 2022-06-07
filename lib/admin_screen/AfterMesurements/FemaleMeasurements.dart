@@ -40,281 +40,275 @@ class _measurementsState extends State<measurements> {
           ),
           centerTitle: true,
         ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+          child: NotificationListener<OverscrollIndicatorNotification>(
+            onNotification: ((overscroll) {
+              overscroll.disallowIndicator();
+              return true;
+            }),
+            child: ListView(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: ListView(
-                    shrinkWrap: true,
-                    children: [
-                      SizedBox(
-                        height: 50,
-                      ),
-                      radioMesure(),
-                      // clothes(),
-                      Row(
-                        children: [
-                          Flexible(
-                            child: Text(
-                              "          Neck :                     ",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
-                            ),
-                          ),
-                          Flexible(
-                            child: Container(
-                              width: 150,
-                              height: 20,
-                              child: TextField(
-                                keyboardType: TextInputType.number,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        children: [
-                          Flexible(
-                            child: Text(
-                              "          Shoulder width :    ",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
-                            ),
-                          ),
-                          Flexible(
-                            child: Container(
-                              width: 150,
-                              height: 20,
-                              child: TextField(
-                                keyboardType: TextInputType.number,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        children: [
-                          Flexible(
-                            child: Text(
-                              "         Armhole Depth :     ",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
-                            ),
-                          ),
-                          Flexible(
-                            child: Container(
-                              width: 150,
-                              height: 20,
-                              child: TextField(
-                                keyboardType: TextInputType.number,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        children: [
-                          Flexible(
-                            child: Text(
-                              "          Elbow :                    ",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
-                            ),
-                          ),
-                          Flexible(
-                            child: Container(
-                              width: 150,
-                              height: 20,
-                              child: TextField(
-                                keyboardType: TextInputType.number,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        children: [
-                          Flexible(
-                            child: Text(
-                              "          Wrist :                     ",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
-                            ),
-                          ),
-                          Flexible(
-                            child: Container(
-                              width: 150,
-                              height: 20,
-                              child: TextField(
-                                keyboardType: TextInputType.number,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        children: [
-                          Flexible(
-                            child: Text(
-                              "          Arm Length :        ",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
-                            ),
-                          ),
-                          Flexible(
-                            child: Container(
-                              width: 150,
-                              height: 20,
-                              child: TextField(
-                                keyboardType: TextInputType.number,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        children: [
-                          Flexible(
-                            child: Text(
-                              "          Bust/Chest :        ",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
-                            ),
-                          ),
-                          Flexible(
-                            child: Container(
-                              width: 150,
-                              height: 20,
-                              child: TextField(
-                                keyboardType: TextInputType.number,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        children: [
-                          Flexible(
-                            child: Text(
-                              "          Waist :                   ",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
-                            ),
-                          ),
-                          Flexible(
-                            child: Container(
-                              width: 150,
-                              height: 20,
-                              child: TextField(
-                                keyboardType: TextInputType.number,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        children: [
-                          Flexible(
-                            child: Text(
-                              "          Hip :                       ",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
-                            ),
-                          ),
-                          Flexible(
-                            child: Container(
-                              width: 150,
-                              height: 20,
-                              child: TextField(
-                                keyboardType: TextInputType.number,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        children: [
-                          Flexible(
-                            child: Text(
-                              "          Front Waist :         ",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
-                            ),
-                          ),
-                          Flexible(
-                            child: Container(
-                              width: 150,
-                              height: 20,
-                              child: TextField(
-                                keyboardType: TextInputType.number,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        children: [
-                          Flexible(
-                            child: Text(
-                              "          Back Waist :         ",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
-                            ),
-                          ),
-                          Flexible(
-                            child: Container(
-                              width: 150,
-                              height: 20,
-                              child: TextField(
-                                keyboardType: TextInputType.number,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 35,
-                      ),
-                      Save(),
-                    ],
-                  ),
+                SizedBox(
+                  height: 50,
                 ),
+                radioMesure(),
+                // clothes(),
+                Row(
+                  children: [
+                    Flexible(
+                      child: Text(
+                        "          Neck :                     ",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                    ),
+                    Flexible(
+                      child: Container(
+                        width: 150,
+                        height: 20,
+                        child: TextField(
+                          keyboardType: TextInputType.number,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  children: [
+                    Flexible(
+                      child: Text(
+                        "          Shoulder width :    ",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                    ),
+                    Flexible(
+                      child: Container(
+                        width: 150,
+                        height: 20,
+                        child: TextField(
+                          keyboardType: TextInputType.number,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  children: [
+                    Flexible(
+                      child: Text(
+                        "         Armhole Depth :     ",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                    ),
+                    Flexible(
+                      child: Container(
+                        width: 150,
+                        height: 20,
+                        child: TextField(
+                          keyboardType: TextInputType.number,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  children: [
+                    Flexible(
+                      child: Text(
+                        "          Elbow :                    ",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                    ),
+                    Flexible(
+                      child: Container(
+                        width: 150,
+                        height: 20,
+                        child: TextField(
+                          keyboardType: TextInputType.number,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  children: [
+                    Flexible(
+                      child: Text(
+                        "          Wrist :                     ",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                    ),
+                    Flexible(
+                      child: Container(
+                        width: 150,
+                        height: 20,
+                        child: TextField(
+                          keyboardType: TextInputType.number,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  children: [
+                    Flexible(
+                      child: Text(
+                        "          Arm Length :        ",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                    ),
+                    Flexible(
+                      child: Container(
+                        width: 150,
+                        height: 20,
+                        child: TextField(
+                          keyboardType: TextInputType.number,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  children: [
+                    Flexible(
+                      child: Text(
+                        "          Bust/Chest :        ",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                    ),
+                    Flexible(
+                      child: Container(
+                        width: 150,
+                        height: 20,
+                        child: TextField(
+                          keyboardType: TextInputType.number,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  children: [
+                    Flexible(
+                      child: Text(
+                        "          Waist :                   ",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                    ),
+                    Flexible(
+                      child: Container(
+                        width: 150,
+                        height: 20,
+                        child: TextField(
+                          keyboardType: TextInputType.number,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  children: [
+                    Flexible(
+                      child: Text(
+                        "          Hip :                       ",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                    ),
+                    Flexible(
+                      child: Container(
+                        width: 150,
+                        height: 20,
+                        child: TextField(
+                          keyboardType: TextInputType.number,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  children: [
+                    Flexible(
+                      child: Text(
+                        "          Front Waist :         ",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                    ),
+                    Flexible(
+                      child: Container(
+                        width: 150,
+                        height: 20,
+                        child: TextField(
+                          keyboardType: TextInputType.number,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  children: [
+                    Flexible(
+                      child: Text(
+                        "          Back Waist :         ",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                    ),
+                    Flexible(
+                      child: Container(
+                        width: 150,
+                        height: 20,
+                        child: TextField(
+                          keyboardType: TextInputType.number,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 35,
+                ),
+                Save(),
               ],
             ),
           ),
@@ -459,7 +453,7 @@ class _measurementsState extends State<measurements> {
               context, MaterialPageRoute(builder: (context) => payment()));
         },
         child: Text(
-          "Save",
+          "Add",
           textAlign: TextAlign.center,
           style: TextStyle(
               fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),

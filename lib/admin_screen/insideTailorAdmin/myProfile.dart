@@ -258,8 +258,8 @@ class _createProfileState extends State<createProfile> {
           Icons.checkroom,
           color: Colors.black,
         ),
-        labelText: "Type of Clothes",
-        hintText: "Types of Clothes stich",
+        labelText: "Type of Stich",
+        hintText: "Types of stich",
       ),
     );
   }

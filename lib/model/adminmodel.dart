@@ -1,14 +1,16 @@
-class UserModel {
+class AdminModel {
+  String? uid;
   String? Name;
   String? Contact;
   String? Email;
   String? Address;
 
-  UserModel({this.Name, this.Contact, this.Email, this.Address});
+  AdminModel({this.Name, this.Contact, this.Email, this.Address, this.uid});
 
   //data from server
-  factory UserModel.fromMap(map) {
-    return UserModel(
+  factory AdminModel.fromMap(map) {
+    return AdminModel(
+      uid: map['uid'],
       Name: map['Name'],
       Contact: map['Contact'],
       Email: map['Email-Id'],
@@ -19,6 +21,7 @@ class UserModel {
   //sending data to server
   Map<String, dynamic> toMap() {
     return {
+      'quid': uid,
       'Name': Name,
       'Contact': Contact,
       'Email-Id': Email,
