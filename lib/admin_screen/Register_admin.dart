@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:silaiproject/admin_screen/HomePage1.dart';
-import 'package:silaiproject/admin_screen/insideTailorAdmin/myProfile.dart';
+import 'package:silaiproject/admin_screen/insideTailorAdmin/myProfile1.dart';
 import 'package:silaiproject/model/adminmodel.dart';
 import 'package:silaiproject/model/usermodel.dart';
 
@@ -18,9 +18,7 @@ class _RegisterAdminState extends State<RegisterAdmin> {
   final _formkey = GlobalKey<FormState>();
 
   final usernameEditingController = new TextEditingController();
-  final ContactEditingController = new TextEditingController();
   final EmailidEditingController = new TextEditingController();
-  final AddressEditingController = new TextEditingController();
   final PasswordEditingController = new TextEditingController();
   final ConPasswordEditingController = new TextEditingController();
 
@@ -47,40 +45,6 @@ class _RegisterAdminState extends State<RegisterAdmin> {
         prefixIcon: Icon(Icons.account_circle),
         contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Name",
-        filled: true,
-        fillColor: Colors.white,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(color: Color(0xFFfa8919)),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 2, color: Color(0xFFfa8919)),
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-      ),
-    );
-
-    final ContactField = TextFormField(
-      autofocus: false,
-      controller: ContactEditingController,
-      keyboardType: TextInputType.phone,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return "Please enter contact no.";
-        }
-        //reg expression for email validation
-        if (value.length != 10) {
-          return "Mobile Number must be of 10 digit";
-        }
-      },
-      onSaved: (value) {
-        ContactEditingController.text = value!;
-      },
-      textInputAction: TextInputAction.next,
-      decoration: InputDecoration(
-        prefixIcon: Icon(Icons.phone),
-        contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-        hintText: "Contact",
         filled: true,
         fillColor: Colors.white,
         border: OutlineInputBorder(
@@ -129,42 +93,9 @@ class _RegisterAdminState extends State<RegisterAdmin> {
       ),
     );
 
-    final AddressField = TextFormField(
-      autofocus: false,
-      controller: AddressEditingController,
-      keyboardType: TextInputType.multiline,
-      minLines: 1,
-      maxLines: 5,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return "Please enter your Address ";
-        }
-      },
-      onSaved: (value) {
-        AddressEditingController.text = value!;
-      },
-      textInputAction: TextInputAction.next,
-      decoration: InputDecoration(
-        prefixIcon: Icon(Icons.location_city_rounded),
-        contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-        hintText: "Address",
-        filled: true,
-        fillColor: Colors.white,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(color: Color(0xFFfa8919)),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 2, color: Color(0xFFfa8919)),
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-      ),
-    );
-
     final passwordField = TextFormField(
-      autofocus: false,
+      obscureText: true,
       controller: PasswordEditingController,
-      obscureText: obscureText,
       validator: (value) {
         RegExp regex = new RegExp(r'^.{6,}$');
         if (value!.isEmpty) {
@@ -317,15 +248,7 @@ class _RegisterAdminState extends State<RegisterAdmin> {
                     SizedBox(
                       height: 15,
                     ),
-                    ContactField,
-                    SizedBox(
-                      height: 15,
-                    ),
                     EmailField,
-                    SizedBox(
-                      height: 15,
-                    ),
-                    AddressField,
                     SizedBox(
                       height: 15,
                     ),
@@ -374,19 +297,14 @@ class _RegisterAdminState extends State<RegisterAdmin> {
 
     //writing values
     adminModel.Name = usernameEditingController.text;
-    adminModel.Contact = user!.phoneNumber;
-    adminModel.Email = user.email;
-    adminModel.Address = AddressEditingController.text;
-
+    adminModel.Email = user?.email;
     await firebaseFirestore
         .collection("admin")
-        .doc(user.uid)
+        .doc(user?.uid)
         .set(adminModel.toMap());
     Fluttertoast.showToast(msg: "Account created succesfully :) ");
 
-    Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(builder: (context) => createProfile()),
-        (route) => false);
+    Navigator.pushAndRemoveUntil(context,
+        MaterialPageRoute(builder: (context) => MyProfile()), (route) => false);
   }
 }

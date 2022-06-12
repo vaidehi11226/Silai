@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:silaiproject/screen_user/Appoitment.dart';
-import 'package:silaiproject/screen_user/ContactStatus.dart';
-import 'package:silaiproject/screen_user/Favrouties.dart';
 import 'package:silaiproject/screen_user/HomePage1.dart';
 import 'package:silaiproject/screen_user/Loginscreen.dart';
 import 'package:silaiproject/screen_user/Navigation_item.dart';
-import 'package:silaiproject/screen_user/OrderStatus.dart';
 
 class NavigationDrawer extends StatelessWidget {
   const NavigationDrawer({Key? key}) : super(key: key);
@@ -35,21 +32,15 @@ class NavigationDrawer extends StatelessWidget {
               ),
               SizedBox(height: 20),
               DrawerItem(
-                name: 'Favrouties',
-                icon: Icons.favorite,
-                onPressed: () => onItemPressed(context, index: 1),
-              ),
-              SizedBox(height: 20),
-              DrawerItem(
                 name: 'Appointment Status',
                 icon: Icons.calendar_month_rounded,
-                onPressed: () => onItemPressed(context, index: 2),
+                onPressed: () => onItemPressed(context, index: 1),
               ),
               SizedBox(height: 20),
               DrawerItem(
                 name: 'Order Status',
                 icon: Icons.shopping_cart_checkout,
-                onPressed: () => onItemPressed(context, index: 3),
+                onPressed: () => onItemPressed(context, index: 2),
               ),
               SizedBox(height: 30),
               Divider(
@@ -60,13 +51,13 @@ class NavigationDrawer extends StatelessWidget {
               DrawerItem(
                 name: 'Contact Support',
                 icon: Icons.contact_support_rounded,
-                onPressed: () => onItemPressed(context, index: 4),
+                onPressed: () => onItemPressed(context, index: 3),
               ),
               SizedBox(height: 20),
               DrawerItem(
                 name: 'Logout',
                 icon: Icons.logout,
-                onPressed: () => onItemPressed(context, index: 5),
+                onPressed: () => onItemPressed(context, index: 4),
               ),
               SizedBox(height: 20),
             ],
@@ -85,22 +76,18 @@ class NavigationDrawer extends StatelessWidget {
             context, MaterialPageRoute(builder: (context) => HomePage1()));
         break;
       case 1:
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Favrouites()));
-        break;
-      case 2:
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => Appoitnmentstatus()));
         break;
+      case 2:
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => orderstatususer()));
+        break;
       case 3:
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => OrderStatus()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => contactsupportuser()));
         break;
       case 4:
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ContactStatus()));
-        break;
-      case 5:
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => LoginUser()));
         break;
@@ -126,6 +113,88 @@ class NavigationDrawer extends StatelessWidget {
           ],
         ),
       ],
+    );
+  }
+
+  Widget contactsupportuser() {
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Color(0xFFfa8919),
+          iconTheme: IconThemeData(color: Colors.black),
+          title: Text(
+            "ContactSupport",
+            style: TextStyle(color: Colors.black),
+          ),
+          centerTitle: true,
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+          child: NotificationListener<OverscrollIndicatorNotification>(
+            onNotification: ((overscroll) {
+              overscroll.disallowIndicator();
+              return true;
+            }),
+            child: ListView(children: [
+              SizedBox(
+                height: 80,
+              ),
+              Row(
+                children: [
+                  Icon(Icons.mark_email_unread_rounded),
+                  Text(
+                    "darjivaidehi2003@gmail.com",
+                    style: TextStyle(
+                        decoration: TextDecoration.underline, fontSize: 20),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                children: [
+                  Icon(Icons.mark_email_unread_rounded),
+                  Text(
+                    "afifahkhan4@gmail.com",
+                    style: TextStyle(
+                        decoration: TextDecoration.underline, fontSize: 20),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                children: [
+                  Icon(Icons.mark_email_unread_rounded),
+                  Text(
+                    "shrenihk30@gmail.com",
+                    style: TextStyle(
+                        decoration: TextDecoration.underline, fontSize: 20),
+                  ),
+                ],
+              )
+            ]),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget orderstatususer() {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Color(0xFFfa8919),
+        iconTheme: IconThemeData(color: Colors.black),
+        title: Text(
+          "OrderStatus",
+          style: TextStyle(color: Colors.black),
+        ),
+        centerTitle: true,
+      ),
     );
   }
 }

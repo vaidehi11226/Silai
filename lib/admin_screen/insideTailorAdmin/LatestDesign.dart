@@ -10,26 +10,62 @@ class Latestdesign extends StatefulWidget {
 class _LatestdesignState extends State<Latestdesign> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Color(0xFFfa8919),
-        iconTheme: IconThemeData(color: Colors.black),
-        title: Text(
-          "Latest Design",
-          style: TextStyle(color: Colors.black),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Color(0xFFfa8919),
+          iconTheme: IconThemeData(color: Colors.black),
+          title: Text(
+            "Latest Design",
+            style: TextStyle(color: Colors.black),
+          ),
+          centerTitle: true,
         ),
-        centerTitle: true,
-      ),
-      /* Padding(
+        /* Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+            child: NotificationListener<OverscrollIndicatorNotification>(
+              onNotification: ((overscroll) {
+                overscroll.disallowIndicator();
+                return true;
+              }),
+              child:*/
+
+        body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
           child: NotificationListener<OverscrollIndicatorNotification>(
             onNotification: ((overscroll) {
               overscroll.disallowIndicator();
               return true;
             }),
-            child:*/
-      body: Column(
+            child: Row(
+              children: [
+                Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.white30,
+                    image: DecorationImage(
+                      image: AssetImage('images/ProjectPictures/Blouse/7.jpg'),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+                Container(
+                  decoration: new BoxDecoration(
+                    color: Colors.white30,
+                    image: new DecorationImage(
+                      image:
+                          new AssetImage("images/ProjectPictures/Burkha/7.jpg"),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    /* Column(
         children: [
           Row(
             children: [
@@ -195,8 +231,8 @@ class _LatestdesignState extends State<Latestdesign> {
             ],
           )
         ],
-      ),
-    );
+      ),*/
+
     /*child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,

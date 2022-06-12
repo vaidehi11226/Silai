@@ -2,8 +2,12 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:silaiproject/admin_screen/HomePage1.dart';
+import 'package:silaiproject/admin_screen/Login_admin.dart';
+import 'package:silaiproject/admin_screen/insideTailorAdmin/AddOrder.dart';
+import 'package:silaiproject/admin_screen/insideTailorAdmin/myProfile1.dart';
+import 'package:silaiproject/screen_user/HomePage1.dart';
 import 'package:silaiproject/screen_user/Loginscreen.dart';
-import 'package:silaiproject/screen_user/homepage.dart';
+import 'package:silaiproject/screen_user/HomePage1.dart';
 import 'package:silaiproject/start.dart';
 
 Future<void> main() async {
@@ -27,7 +31,7 @@ class MyApp extends StatelessWidget {
           height: 1000,
           width: 1000,
         ),
-        nextScreen: HomePage1(),
+        nextScreen: Start(),
         splashTransition: SplashTransition.scaleTransition,
         backgroundColor: Colors.white,
         duration: 800,

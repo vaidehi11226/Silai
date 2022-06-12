@@ -33,7 +33,7 @@ class _RegisterUserState extends State<RegisterUser> {
       keyboardType: TextInputType.name,
       validator: (value) {
         if (value!.isEmpty) {
-          return "Please enter your Name";
+          return "Please enter your Shop Name";
         }
         return null;
       },
@@ -161,8 +161,8 @@ class _RegisterUserState extends State<RegisterUser> {
 
     final passwordField = TextFormField(
       autofocus: false,
+      obscureText: true,
       controller: PasswordEditingController,
-      obscureText: obscureText,
       validator: (value) {
         RegExp regex = new RegExp(r'^.{6,}$');
         if (value!.isEmpty) {
@@ -178,7 +178,7 @@ class _RegisterUserState extends State<RegisterUser> {
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
         prefixIcon: Icon(Icons.lock),
-        suffixIcon: GestureDetector(
+        /*suffixIcon: GestureDetector(
             onTap: () {
               setState(() {
                 obscureText = !obscureText;
@@ -192,7 +192,7 @@ class _RegisterUserState extends State<RegisterUser> {
                 : const Icon(
                     Icons.visibility,
                     color: Colors.grey,
-                  )),
+                  )),*/
         prefixIconColor: Color(0xFF063448),
         contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Password",
@@ -369,13 +369,13 @@ class _RegisterUserState extends State<RegisterUser> {
 
     //writing values
     userModel.Name = usernameEditingController.text;
-    userModel.Contact = user!.phoneNumber;
-    userModel.Email = user.email;
+    userModel.Contact = ContactEditingController.text;
+    userModel.Email = user?.email;
     userModel.Address = AddressEditingController.text;
 
     await firebaseFirestore
         .collection("users")
-        .doc(user.uid)
+        .doc(user?.uid)
         .set(userModel.toMap());
     Fluttertoast.showToast(msg: "Account created succesfully :) ");
 

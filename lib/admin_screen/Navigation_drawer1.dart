@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:silaiproject/admin_screen/AppoiList.dart';
-import 'package:silaiproject/admin_screen/ContactStatus.dart';
 import 'package:silaiproject/admin_screen/HomePage1.dart';
 import 'package:silaiproject/admin_screen/Login_admin.dart';
-import 'package:silaiproject/admin_screen/MyAccount.dart';
-import 'package:silaiproject/admin_screen/OrdersList.dart';
-import 'package:silaiproject/admin_screen/UpcomingDue.dart';
+import 'package:silaiproject/admin_screen/Myaccount.dart';
 import 'package:silaiproject/admin_screen/Navigation_item.dart';
 
 class NavigationDrawer1 extends StatelessWidget {
@@ -93,23 +89,23 @@ class NavigationDrawer1 extends StatelessWidget {
         break;
       case 1:
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => MyAccount()));
+            context, MaterialPageRoute(builder: (context) => Myaccount()));
         break;
       case 2:
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => AppoinList()));
+            context, MaterialPageRoute(builder: (context) => apointlist()));
         break;
       case 3:
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => OrdersList()));
+            context, MaterialPageRoute(builder: (context) => orderlist()));
         break;
       case 4:
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => UpcomingDue()));
+            context, MaterialPageRoute(builder: (context) => upcomingdue()));
         break;
       case 5:
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ContactStatus()));
+            context, MaterialPageRoute(builder: (context) => contactstatus()));
         break;
       case 6:
         Navigator.push(
@@ -137,6 +133,135 @@ class NavigationDrawer1 extends StatelessWidget {
           ],
         ),
       ],
+    );
+  }
+
+  /*Widget myacc() {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Color(0xFFfa8919),
+        iconTheme: IconThemeData(color: Colors.black),
+        title: Text(
+          "Account",
+          style: TextStyle(color: Colors.black),
+        ),
+        centerTitle: true,
+      ),
+    );
+
+
+  }*/
+
+  Widget apointlist() {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Color(0xFFfa8919),
+        iconTheme: IconThemeData(color: Colors.black),
+        title: Text(
+          "Appointment List",
+          style: TextStyle(color: Colors.black),
+        ),
+        centerTitle: true,
+      ),
+    );
+  }
+
+  Widget upcomingdue() {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Color(0xFFfa8919),
+        iconTheme: IconThemeData(color: Colors.black),
+        title: Text(
+          "Upcoming Due",
+          style: TextStyle(color: Colors.black),
+        ),
+        centerTitle: true,
+      ),
+    );
+  }
+
+  Widget orderlist() {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Color(0xFFfa8919),
+        iconTheme: IconThemeData(color: Colors.black),
+        title: Text(
+          "OrderList",
+          style: TextStyle(color: Colors.black),
+        ),
+        centerTitle: true,
+      ),
+    );
+  }
+
+  Widget contactstatus() {
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Color(0xFFfa8919),
+          iconTheme: IconThemeData(color: Colors.black),
+          title: Text(
+            "ContactSupport",
+            style: TextStyle(color: Colors.black),
+          ),
+          centerTitle: true,
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+          child: NotificationListener<OverscrollIndicatorNotification>(
+            onNotification: ((overscroll) {
+              overscroll.disallowIndicator();
+              return true;
+            }),
+            child: ListView(children: [
+              SizedBox(
+                height: 80,
+              ),
+              Row(
+                children: [
+                  Icon(Icons.mark_email_unread_rounded),
+                  Text(
+                    "darjivaidehi2003@gmail.com",
+                    style: TextStyle(
+                        decoration: TextDecoration.underline, fontSize: 20),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                children: [
+                  Icon(Icons.mark_email_unread_rounded),
+                  Text(
+                    "afifahkhan4@gmail.com",
+                    style: TextStyle(
+                        decoration: TextDecoration.underline, fontSize: 20),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                children: [
+                  Icon(Icons.mark_email_unread_rounded),
+                  Text(
+                    "shrenihk30@gmail.com",
+                    style: TextStyle(
+                        decoration: TextDecoration.underline, fontSize: 20),
+                  ),
+                ],
+              )
+            ]),
+          ),
+        ),
+      ),
     );
   }
 }

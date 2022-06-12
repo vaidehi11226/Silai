@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:silaiproject/model/usermodel.dart';
 import 'package:silaiproject/screen_user/Navigation_drawer.dart';
 
 class HomePage1 extends StatefulWidget {
@@ -9,6 +11,9 @@ class HomePage1 extends StatefulWidget {
 }
 
 class _HomePage1State extends State<HomePage1> {
+  //List<Object> _tailorlist = [];
+  UserModel usermodel = UserModel();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +40,80 @@ class _HomePage1State extends State<HomePage1> {
         ],
       ),
       drawer: NavigationDrawer(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 22.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextField(
+            //onChanged: (value) =>uppdateList(value),
+            style: TextStyle(color: Colors.white70),
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.black,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8.0),
+                borderSide: BorderSide.none,
+              ),
+              hintText: "Seach The Tailor",
+              prefixIcon: Icon(Icons.search),
+              prefixIconColor: Colors.purple.shade900,
+            ),
+          ),
+          SizedBox(height: 20),
+          StreamBuilder<QuerySnapshot>(
+            stream: FirebaseFirestore.instance
+                .collection("adminProfile")
+                .snapshots(),
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return Text('Something went wrong');
+              } else if (snapshot.hasData || snapshot.data != null) {
+                return ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: snapshot.data?.docs.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      QueryDocumentSnapshot<Object?>? documentSnapshot =
+                          snapshot.data?.docs[index];
+                      return Dismissible(
+                          key: Key(index.toString()),
+                          child: Card(
+                            elevation: 4,
+                            child: ListTile(
+                                title: Text((documentSnapshot != null)
+                                    ? (documentSnapshot["shopname"])
+                                    : ""),
+                                subtitle: Text((documentSnapshot != null)
+                                    ? ((documentSnapshot["Address"] != null)
+                                        ? documentSnapshot["Address"]
+                                        : "")
+                                    : ""),
+                                trailing: Image.network(
+                                    (documentSnapshot != null)
+                                        ? (documentSnapshot['url'])
+                                        : ""),
+                                onTap: () {}),
+                          ));
+                    });
+              }
+              return const Center(
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    Colors.green,
+                  ),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 }

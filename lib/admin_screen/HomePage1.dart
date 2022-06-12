@@ -47,7 +47,7 @@ class _HomePage1State extends State<HomePage1> {
                   SizedBox(
                     height: 80,
                   ),
-                  LatestDesignButton(),
+                  //LatestDesignButton(),
                 ],
               ),
             ),
@@ -67,7 +67,9 @@ class _HomePage1State extends State<HomePage1> {
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => AddOrder()));
+            context,
+            MaterialPageRoute(builder: (context) => AddOrder()),
+          );
         },
         child: Text(
           "Add Order",
@@ -101,7 +103,7 @@ class _HomePage1State extends State<HomePage1> {
     );
   }
 
-  Widget LatestDesignButton() {
+  /* Widget LatestDesignButton() {
     return Material(
       elevation: 2,
       borderRadius: BorderRadius.circular(25),
@@ -121,5 +123,5 @@ class _HomePage1State extends State<HomePage1> {
         ),
       ),
     );
-  }
+  }*/
 }

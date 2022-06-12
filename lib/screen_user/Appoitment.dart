@@ -59,43 +59,45 @@ class _AppoitnmentstatusState extends State<Appoitnmentstatus> {
               ),
             ),
             Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Home Service"),
-                Radio(
-                    value: "HomeService",
-                    groupValue: level,
-                    onChanged: (value) {
-                      setState(() {
-                        level = value.toString();
-                      });
-                    }),
-                SizedBox(
-                  width: 10.0,
+                Row(
+                  children: [
+                    Text("     Home Service"),
+                    Radio(
+                        value: "HomeService",
+                        groupValue: level,
+                        onChanged: (value) {
+                          setState(() {
+                            level = value.toString();
+                          });
+                        }),
+                    SizedBox(
+                      width: 10.0,
+                    ),
+                    Text("     Shop Service"),
+                    Radio(
+                        value: "ShopService",
+                        groupValue: level,
+                        onChanged: (value) {
+                          setState(() {
+                            level = value.toString();
+                          });
+                        }),
+                    SizedBox(
+                      width: 10.0,
+                    ),
+                  ],
                 ),
-                Text("Shop Service"),
-                Radio(
-                    value: "ShopService",
-                    groupValue: level,
-                    onChanged: (value) {
-                      setState(() {
-                        level = value.toString();
-                      });
-                    }),
-                SizedBox(
-                  width: 10.0,
-                ),
+              ],
+            ),
+            SizedBox(height: 30),
+            BookButton(),
           ],
         ),
-          ],
       ),
-          ],
-      ),
-      ),
-      );
+    );
   }
 
   Future<void> _selectTime(BuildContext context) async {
@@ -132,5 +134,24 @@ class _AppoitnmentstatusState extends State<Appoitnmentstatus> {
         _isDateSelected = true;
       });
     }
+  }
+
+  Widget BookButton() {
+    return Material(
+      elevation: 4,
+      borderRadius: BorderRadius.circular(25),
+      color: Color(0xFFfa8919),
+      child: MaterialButton(
+        padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+        minWidth: MediaQuery.of(context).size.width,
+        onPressed: () {},
+        child: Text(
+          "Book",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
   }
 }
