@@ -95,7 +95,7 @@ class detailProfile extends StatelessWidget {
                               documentSnapshot["Contact"],
                               style: TextStyle(
                                 decoration: TextDecoration.underline,
-                                fontSize: 20,
+                                fontSize: 15,
                               ),
                             )
                           ],
@@ -103,14 +103,14 @@ class detailProfile extends StatelessWidget {
                         Text(
                           '          Experience :',
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 15,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         Text(
                           documentSnapshot["experience"],
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 15,
                           ),
                         )
                       ],
