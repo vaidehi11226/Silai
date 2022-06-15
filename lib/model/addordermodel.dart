@@ -5,6 +5,7 @@ class AddOrder1 {
   String? Contact;
   String? ClothMaterial;
   String? SelectTheStich;
+  String? DueDate;
 
   AddOrder1({
     this.uid,
@@ -13,6 +14,7 @@ class AddOrder1 {
     this.Contact,
     this.ClothMaterial,
     this.SelectTheStich,
+    this.DueDate,
   });
 
   factory AddOrder1.fromMap(map) {
@@ -21,7 +23,8 @@ class AddOrder1 {
       Name: map['Name'],
       Email: map['Email'],
       ClothMaterial: map['ClothMaterial'],
-      SelectTheStich: map['SelectTheStich'],
+      SelectTheStich: map['SelectTheStich'].toString(),
+      DueDate: map['duedate'],
     );
   }
   Map<String, dynamic> toMap() {
@@ -31,6 +34,7 @@ class AddOrder1 {
       'Email': Email,
       'ClothMaterial': ClothMaterial,
       'SelectTheStich': SelectTheStich,
+      'duedate': DueDate,
     };
   }
 }

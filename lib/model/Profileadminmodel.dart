@@ -1,5 +1,4 @@
 class ProfileAdmin {
-  String? uid;
   String? url;
   String? ShopName;
   String? Contact;
@@ -9,7 +8,6 @@ class ProfileAdmin {
   String? Specialistin;
 
   ProfileAdmin({
-    this.uid,
     this.url,
     this.ShopName,
     this.Contact,
@@ -21,7 +19,6 @@ class ProfileAdmin {
 
   factory ProfileAdmin.fromMap(map) {
     return ProfileAdmin(
-      uid: map['uid'],
       url: map['url'],
       ShopName: map['shopname'],
       Contact: map['Contact'],
@@ -33,7 +30,6 @@ class ProfileAdmin {
   }
   Map<String, dynamic> toMap() {
     return {
-      'uid': uid,
       'url': url,
       'shopname': ShopName,
       'Contact': Contact,

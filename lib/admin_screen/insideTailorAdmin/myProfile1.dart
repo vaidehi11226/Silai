@@ -446,7 +446,6 @@ class _MyProfileState extends State<MyProfile> {
           //firestore add details
           final User? user = _auth.currentUser;
           ProfileAdmin profileAdmin = ProfileAdmin();
-          profileAdmin.uid = user?.uid;
           profileAdmin.url = url;
           profileAdmin.ShopName = ShopNameEditingController.text;
           profileAdmin.Contact = ContactEditingController.text;

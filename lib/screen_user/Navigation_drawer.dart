@@ -30,34 +30,16 @@ class NavigationDrawer extends StatelessWidget {
                 icon: Icons.home,
                 onPressed: () => onItemPressed(context, index: 0),
               ),
-              SizedBox(height: 20),
-              DrawerItem(
-                name: 'Appointment Status',
-                icon: Icons.calendar_month_rounded,
-                onPressed: () => onItemPressed(context, index: 1),
-              ),
-              SizedBox(height: 20),
-              DrawerItem(
-                name: 'Order Status',
-                icon: Icons.shopping_cart_checkout,
-                onPressed: () => onItemPressed(context, index: 2),
-              ),
-              SizedBox(height: 30),
-              Divider(
-                thickness: 1,
-                height: 10,
-                color: Colors.blueGrey,
-              ),
               DrawerItem(
                 name: 'Contact Support',
                 icon: Icons.contact_support_rounded,
-                onPressed: () => onItemPressed(context, index: 3),
+                onPressed: () => onItemPressed(context, index: 1),
               ),
               SizedBox(height: 20),
               DrawerItem(
                 name: 'Logout',
                 icon: Icons.logout,
-                onPressed: () => onItemPressed(context, index: 4),
+                onPressed: () => onItemPressed(context, index: 2),
               ),
               SizedBox(height: 20),
             ],
@@ -77,17 +59,9 @@ class NavigationDrawer extends StatelessWidget {
         break;
       case 1:
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => Appoitnmentstatus()));
-        break;
-      case 2:
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => orderstatususer()));
-        break;
-      case 3:
-        Navigator.push(context,
             MaterialPageRoute(builder: (context) => contactsupportuser()));
         break;
-      case 4:
+      case 2:
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => LoginUser()));
         break;

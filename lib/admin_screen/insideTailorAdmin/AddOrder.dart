@@ -13,6 +13,19 @@ class AddOrder extends StatefulWidget {
 }
 
 class _AddOrderState extends State<AddOrder> {
+  List list = [];
+  /* List selectStichList = [
+    SelectStich("Blouse", false),
+    SelectStich("Suit", false),
+    SelectStich("Goan", false),
+    SelectStich("Burkha", false),
+    SelectStich("Poshak", false),
+    SelectStich("Chaniya Choli", false),
+    SelectStich("Kurti", false),
+    SelectStich("OnePieceDress", false),
+    SelectStich("Paticoat", false),
+  ];*/
+
   bool value1 = false;
   bool value2 = false;
   bool value3 = false;
@@ -22,6 +35,16 @@ class _AddOrderState extends State<AddOrder> {
   bool value7 = false;
   bool value8 = false;
   bool value9 = false;
+
+  String? Blouse;
+  String? Suit;
+  String? Goan;
+  String? Burkha;
+  String? Poshak;
+  String? ChaniyaCholi;
+  String? Kurti;
+  String? OnePieceDress;
+  String? Paticoat;
 
   final _formkey = GlobalKey<FormState>();
 
@@ -112,6 +135,7 @@ class _AddOrderState extends State<AddOrder> {
                         onChanged: (bool? value) {
                           setState(() {
                             this.value1 = value!;
+                            list.add(Blouse);
                           });
                         },
                       ),
@@ -124,6 +148,7 @@ class _AddOrderState extends State<AddOrder> {
                         onChanged: (bool? value) {
                           setState(() {
                             this.value2 = value!;
+                            list.add(Suit);
                           });
                         },
                       ),
@@ -136,6 +161,7 @@ class _AddOrderState extends State<AddOrder> {
                         onChanged: (bool? value) {
                           setState(() {
                             this.value3 = value!;
+                            list.add(Goan);
                           });
                         },
                       ),
@@ -148,6 +174,7 @@ class _AddOrderState extends State<AddOrder> {
                         onChanged: (bool? value) {
                           setState(() {
                             this.value4 = value!;
+                            list.add(Burkha);
                           });
                         },
                       ),
@@ -170,6 +197,7 @@ class _AddOrderState extends State<AddOrder> {
                           onChanged: (bool? value) {
                             setState(() {
                               this.value5 = value!;
+                              list.add(Poshak);
                             });
                           },
                         ),
@@ -182,6 +210,7 @@ class _AddOrderState extends State<AddOrder> {
                           onChanged: (bool? value) {
                             setState(() {
                               this.value6 = value!;
+                              list.add(ChaniyaCholi);
                             });
                           },
                         ),
@@ -194,6 +223,7 @@ class _AddOrderState extends State<AddOrder> {
                           onChanged: (bool? value) {
                             setState(() {
                               this.value7 = value!;
+                              list.add(Kurti);
                             });
                           },
                         ),
@@ -219,6 +249,7 @@ class _AddOrderState extends State<AddOrder> {
                           onChanged: (bool? value) {
                             setState(() {
                               this.value8 = value!;
+                              list.add(OnePieceDress);
                             });
                           },
                         ),
@@ -231,6 +262,7 @@ class _AddOrderState extends State<AddOrder> {
                           onChanged: (bool? value) {
                             setState(() {
                               this.value9 = value!;
+                              list.add(Paticoat);
                             });
                           },
                         ),
@@ -488,12 +520,12 @@ class _AddOrderState extends State<AddOrder> {
       try {
         final User? user = _auth.currentUser;
         AddOrder1 orderadd = AddOrder1();
-        orderadd.uid = user?.uid;
         orderadd.Name = Namecontroller.text;
         orderadd.Email = Emailcontroller.text;
         orderadd.Contact = Contactcontroller.text;
         orderadd.ClothMaterial = ClothMaterialcontroller.text;
         orderadd.SelectTheStich = SelectYourStichcontroller.text;
+        orderadd.DueDate = DueDateController.text;
         await FirebaseFirestore.instance
             .collection('AddOrder')
             .doc(user?.uid)

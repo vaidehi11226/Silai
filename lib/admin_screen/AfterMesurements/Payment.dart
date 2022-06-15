@@ -276,8 +276,10 @@ class _paymentState extends State<payment> {
         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Bill()));
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => const Bill()),
+              (route) => false);
         },
         child: Text(
           "Proceed for Bill",

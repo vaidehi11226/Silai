@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         nextScreen: Start(),
         splashTransition: SplashTransition.scaleTransition,
         backgroundColor: Colors.white,
-        duration: 800,
+        duration: 700,
       ),
     );
   }
