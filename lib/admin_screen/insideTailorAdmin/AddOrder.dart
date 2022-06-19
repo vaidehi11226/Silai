@@ -197,7 +197,7 @@ class _AddOrderState extends State<AddOrder> {
                           onChanged: (bool? value) {
                             setState(() {
                               this.value5 = value!;
-                              list.add(Poshak);
+                              //list.add(Poshak);
                             });
                           },
                         ),
@@ -210,7 +210,7 @@ class _AddOrderState extends State<AddOrder> {
                           onChanged: (bool? value) {
                             setState(() {
                               this.value6 = value!;
-                              list.add(ChaniyaCholi);
+                              //list.add(ChaniyaCholi);
                             });
                           },
                         ),
@@ -223,7 +223,7 @@ class _AddOrderState extends State<AddOrder> {
                           onChanged: (bool? value) {
                             setState(() {
                               this.value7 = value!;
-                              list.add(Kurti);
+                              //list.add(Kurti);
                             });
                           },
                         ),
@@ -249,7 +249,7 @@ class _AddOrderState extends State<AddOrder> {
                           onChanged: (bool? value) {
                             setState(() {
                               this.value8 = value!;
-                              list.add(OnePieceDress);
+                              //list.add(OnePieceDress);
                             });
                           },
                         ),
@@ -262,7 +262,7 @@ class _AddOrderState extends State<AddOrder> {
                           onChanged: (bool? value) {
                             setState(() {
                               this.value9 = value!;
-                              list.add(Paticoat);
+                              //list.add(Paticoat);
                             });
                           },
                         ),

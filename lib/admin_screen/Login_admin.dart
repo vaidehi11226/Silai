@@ -50,7 +50,7 @@ class _LoginscreenState extends State<Loginscreen> {
       decoration: InputDecoration(
         prefixIcon: Icon(Icons.mail),
         contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-        hintText: "Email-Id",
+        hintText: "Enter Email-Id as @admin.com",
         filled: true,
         fillColor: Colors.white,
         border: OutlineInputBorder(
@@ -179,6 +179,7 @@ class _LoginscreenState extends State<Loginscreen> {
               padding: const EdgeInsets.all(8.0),
               child: Form(
                   key: _formkey,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,

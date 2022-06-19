@@ -7,7 +7,7 @@
 
 
    <application
-        android:label="silaiproject"
+        android:label="Silai"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

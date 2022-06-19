@@ -1,6 +1,8 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:silaiproject/admin_screen/AfterMesurements/Bill.dart';
+import 'package:silaiproject/admin_screen/AfterMesurements/Payment.dart';
 import 'package:silaiproject/admin_screen/HomePage1.dart';
 import 'package:silaiproject/admin_screen/Login_admin.dart';
 import 'package:silaiproject/admin_screen/insideTailorAdmin/AddOrder.dart';
@@ -31,10 +33,10 @@ class MyApp extends StatelessWidget {
           height: 1000,
           width: 1000,
         ),
-        nextScreen: Start(),
+        nextScreen: Bill(),
         splashTransition: SplashTransition.scaleTransition,
         backgroundColor: Colors.white,
-        duration: 700,
+        duration: 800,
       ),
     );
   }

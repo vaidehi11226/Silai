@@ -54,7 +54,7 @@ dev_dependencies:
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "images/AppIcon.png"
+  image_path: "images/Silai_logo.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -80,23 +80,7 @@ flutter:
      - images/sewing2.png
      - images/cartoonprofile.png
      - images/price.png
-     - images/ProjectPictures/Blouse/7.jpg
-     - images/ProjectPictures/Blouse/5.jpg
-     - images/ProjectPictures/Burkha/7.jpg
-     - images/ProjectPictures/Burkha/4.jpg
-     - images/ProjectPictures/Gown/2.jpg
-     - images/ProjectPictures/Gown/5.jpg
-     - images/ProjectPictures/Gown/3.jpg
-     - images/ProjectPictures/ChaniyaCholi/1.jpg
-     - images/ProjectPictures/ChaniyaCholi/4.jpg
-     - images/ProjectPictures/ChaniyaCholi/8.jpg
-     - images/ProjectPictures/Kurti/1.jpg
-     - images/ProjectPictures/Kurti/6.jpg
-     - images/ProjectPictures/Peticoat/8.jpg
-     - images/ProjectPictures/Peticoat/4.jpg
-     - images/ProjectPictures/suit/Punjabi/5.jpg
-     - images/ProjectPictures/suit/Plazzo/12.jpg
-     - images/ProjectPictures/suit/Pants/18.jpg
+     
 
   
 

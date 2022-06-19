@@ -29,7 +29,7 @@ class _HomePage1State extends State<HomePage1> {
           width: 85.0,
           alignment: Alignment.centerRight,
         ),
-        actions: <Widget>[
+        /*actions: <Widget>[
           IconButton(
               onPressed: () {
                 showSearch(context: context, delegate: DataSearch());
@@ -38,7 +38,7 @@ class _HomePage1State extends State<HomePage1> {
                 Icons.search,
                 color: Colors.black,
               )),
-        ],
+        ],*/
       ),
       drawer: NavigationDrawer(),
       body: Padding(
@@ -86,9 +86,9 @@ class _HomePage1State extends State<HomePage1> {
                         final DocumentSnapshot documentSnapshot =
                             snapshot.data!.docs[index];
                         return Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          padding: const EdgeInsets.symmetric(vertical: 3),
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8),
+                            padding: const EdgeInsets.symmetric(vertical: 3),
                             child: GestureDetector(
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
@@ -96,7 +96,11 @@ class _HomePage1State extends State<HomePage1> {
                                         documentSnapshot: documentSnapshot)));
                               },
                               child: Card(
-                                elevation: 4,
+                                color: Colors.black,
+                                elevation: 3,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
                                 child: ListTile(
                                   leading: Image.network(
                                       (documentSnapshot != null)
@@ -205,7 +209,7 @@ class _HomePage1State extends State<HomePage1> {
   }
 }
 
-class DataSearch extends SearchDelegate<String?> {
+/*class DataSearch extends SearchDelegate<String?> {
   final maharashtra = [
     'Ahmednagar',
     'Akola',
@@ -313,5 +317,4 @@ class DataSearch extends SearchDelegate<String?> {
       itemCount: suggestionList.length,
     );
     throw UnimplementedError();
-  }
-}
+  }*/
