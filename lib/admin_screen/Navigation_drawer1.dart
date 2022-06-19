@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:silaiproject/admin_screen/HomePage1.dart';
 import 'package:silaiproject/admin_screen/Login_admin.dart';
@@ -5,7 +6,11 @@ import 'package:silaiproject/admin_screen/Myaccount.dart';
 import 'package:silaiproject/admin_screen/Navigation_item.dart';
 
 class NavigationDrawer1 extends StatelessWidget {
-  const NavigationDrawer1({Key? key}) : super(key: key);
+  //final DocumentSnapshot documentSnapshot;
+  const NavigationDrawer1({
+    Key? key,
+    /*required this.documentSnapshot*/
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,60 +23,59 @@ class NavigationDrawer1 extends StatelessWidget {
             children: [
               headerWidget(),
               SizedBox(
-                height: 30,
+                height: 40,
               ),
               Divider(
-                thickness: 1,
+                thickness: 3,
                 height: 10,
                 color: Colors.blueGrey,
+              ),
+              SizedBox(
+                height: 30,
               ),
               DrawerItem(
                 name: 'Home',
                 icon: Icons.home,
                 onPressed: () => onItemPressed(context, index: 0),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 30),
               DrawerItem(
                 name: 'My Account',
                 icon: Icons.account_circle,
                 onPressed: () => onItemPressed(context, index: 1),
               ),
-              SizedBox(height: 20),
-              DrawerItem(
-                name: 'Appointment list',
-                icon: Icons.calendar_month_rounded,
-                onPressed: () => onItemPressed(context, index: 2),
-              ),
-              SizedBox(height: 20),
-              DrawerItem(
-                name: 'Orders list',
-                icon: Icons.shopping_cart_checkout,
-                onPressed: () => onItemPressed(context, index: 3),
-              ),
               SizedBox(height: 30),
               Divider(
-                thickness: 1,
+                thickness: 3,
                 height: 10,
                 color: Colors.blueGrey,
+              ),
+              SizedBox(
+                height: 30,
               ),
               DrawerItem(
                 name: 'Upcoming due',
                 icon: Icons.notification_add,
-                onPressed: () => onItemPressed(context, index: 4),
+                onPressed: () => onItemPressed(context, index: 2),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 30),
               DrawerItem(
                 name: 'Contact Support',
                 icon: Icons.contact_support_rounded,
-                onPressed: () => onItemPressed(context, index: 5),
+                onPressed: () => onItemPressed(context, index: 3),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 30),
+              DrawerItem(
+                name: 'AboutUs',
+                icon: Icons.info,
+                onPressed: () => onItemPressed(context, index: 4),
+              ),
+              SizedBox(height: 30),
               DrawerItem(
                 name: 'Logout',
                 icon: Icons.logout,
-                onPressed: () => onItemPressed(context, index: 6),
+                onPressed: () => onItemPressed(context, index: 5),
               ),
-              SizedBox(height: 20),
             ],
           ),
         ),
@@ -93,23 +97,24 @@ class NavigationDrawer1 extends StatelessWidget {
         break;
       case 2:
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => apointlist()));
+            context, MaterialPageRoute(builder: (context) => upcomingdue()));
         break;
       case 3:
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => orderlist()));
+            context, MaterialPageRoute(builder: (context) => contactstatus()));
         break;
       case 4:
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => upcomingdue()));
+            context, MaterialPageRoute(builder: (context) => AboutUs()));
         break;
       case 5:
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => contactstatus()));
-        break;
-      case 6:
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Loginscreen()));
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+            builder: (BuildContext context) => Loginscreen(),
+          ),
+          (route) => false,
+        );
         break;
       default:
         Navigator.pop(context);
@@ -120,19 +125,62 @@ class NavigationDrawer1 extends StatelessWidget {
   Widget headerWidget() {
     return Row(
       children: [
-        CircleAvatar(
-          radius: 40,
-        ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Vaidehi",
-              style: TextStyle(fontSize: 14, color: Colors.white),
-            )
+              "Hey! DressMaker",
+              style: TextStyle(
+                  fontSize: 20, color: Color.fromARGB(255, 232, 157, 246)),
+            ),
+            /*Text(
+              documentSnapshot["shopname"],
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 35,
+              ),
+            ),*/
           ],
         ),
       ],
+    );
+  }
+
+  Widget AboutUs() {
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Color(0xFFfa8919),
+          iconTheme: IconThemeData(color: Colors.black),
+          title: Text(
+            "About Us",
+            style: TextStyle(color: Colors.black),
+          ),
+          centerTitle: true,
+        ),
+        body: Padding(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              children: [
+                Text(
+                  'About Silai',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                Container(
+                  width: 500.0,
+                  height: 400.0,
+                  color: Colors.transparent,
+                  child: Text(
+                      "We are Helping Dressmaker and Customer to connect directly for order purpose.Many number of dressmaker can create their account in our app that will be useful for customers to view dressmakers details and go for order.Time will be saved as there is no need to visit dressmakers place to check if customer can trust him/her with their clothes to be stiched.Also home and shop Service are available.It is profitable for dessmaker as through the app one's shop is not limited to his/her area but it is world wide now.",
+                      style: TextStyle(fontSize: 15)),
+                ),
+              ],
+            )),
+      ),
     );
   }
 

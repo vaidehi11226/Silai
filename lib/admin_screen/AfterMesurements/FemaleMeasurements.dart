@@ -69,7 +69,6 @@ class _measurementsState extends State<measurements> {
               children: [
                 Form(
                     key: _formkey,
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     child: Column(
                       children: [
                         SizedBox(

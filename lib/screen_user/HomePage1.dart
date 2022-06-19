@@ -42,71 +42,70 @@ class _HomePage1State extends State<HomePage1> {
       ),
       drawer: NavigationDrawer(),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 22.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            TextField(
-              //onChanged: (value) =>uppdateList(value),
-              style: TextStyle(color: Colors.black),
-              decoration: InputDecoration(
-                hintText: "Seach The Tailor",
-                filled: true,
-                fillColor: Colors.white70,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                  borderSide: BorderSide.none,
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+        child: NotificationListener<OverscrollIndicatorNotification>(
+          onNotification: ((overscroll) {
+            overscroll.disallowIndicator();
+            return true;
+          }),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.bold,
                 ),
-                prefixIcon: Icon(Icons.search),
-                prefixIconColor: Colors.purple.shade900,
               ),
-            ),
-            SizedBox(height: 20),
-            StreamBuilder(
-              stream: FirebaseFirestore.instance
-                  .collection("adminProfile")
-                  .snapshots(),
-              builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                if (snapshot.hasError) {
-                  return Text('Something went wrong');
-                } else if (snapshot.hasData || snapshot.data != null) {
-                  return ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: snapshot.data?.docs.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        final DocumentSnapshot documentSnapshot =
-                            snapshot.data!.docs[index];
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 3),
-                          child: Padding(
+              Text(
+                //onChanged: (value) =>uppdateList(value),
+                '                    DressMakers List',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 20),
+              StreamBuilder(
+                stream: FirebaseFirestore.instance
+                    .collection("adminProfile")
+                    .snapshots(),
+                builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                  if (snapshot.hasError) {
+                    return Text('Something went wrong');
+                  } else if (snapshot.hasData || snapshot.data != null) {
+                    return ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: snapshot.data?.docs.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          final DocumentSnapshot documentSnapshot =
+                              snapshot.data!.docs[index];
+                          return Padding(
                             padding: const EdgeInsets.symmetric(vertical: 3),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => detailProfile(
-                                        documentSnapshot: documentSnapshot)));
-                              },
-                              child: Card(
-                                color: Colors.black,
-                                elevation: 3,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                child: ListTile(
-                                  leading: Image.network(
-                                      (documentSnapshot != null)
-                                          ? (documentSnapshot['url'])
-                                          : ""),
-                                  /*Container(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 3),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => detailProfile(
+                                          documentSnapshot: documentSnapshot)));
+                                },
+                                child: Card(
+                                  color: Colors.black,
+                                  elevation: 3,
+                                  shadowColor: Colors.purpleAccent,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15),
+                                  ),
+                                  child: ListTile(
+                                    leading: Image.network(
+                                        (documentSnapshot != null)
+                                            ? (documentSnapshot['url'])
+                                            : ""),
+                                    /*Container(
                                     width: 100,
                                     height: 100,
                                     decoration: BoxDecoration(
@@ -142,37 +141,39 @@ class _HomePage1State extends State<HomePage1> {
                                         ]),
                                   ),*/
 
-                                  title: Padding(
-                                    padding:
-                                        const EdgeInsets.symmetric(vertical: 6),
-                                    child: Text(
-                                      (documentSnapshot != null)
-                                          ? (documentSnapshot["shopname"])
-                                          : "",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold),
+                                    title: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 6),
+                                      child: Text(
+                                        (documentSnapshot != null)
+                                            ? (documentSnapshot["shopname"])
+                                            : "",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white),
+                                      ),
                                     ),
-                                  ),
-                                  subtitle: Padding(
-                                    padding:
-                                        const EdgeInsets.symmetric(vertical: 6),
-                                    child: Text(
-                                      (documentSnapshot != null)
-                                          ? ((documentSnapshot["Address"] !=
-                                                  null)
-                                              ? documentSnapshot["Address"]
-                                              : "")
-                                          : "",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold),
+                                    subtitle: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 6),
+                                      child: Text(
+                                        (documentSnapshot != null)
+                                            ? ((documentSnapshot["Address"] !=
+                                                    null)
+                                                ? documentSnapshot["Address"]
+                                                : "")
+                                            : "",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white),
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        );
-                        /*return Dismissible(
+                          );
+                          /*return Dismissible(
                             key: Key(index.toString()),
                             child: Card(
                               elevation: 4,
@@ -191,18 +192,19 @@ class _HomePage1State extends State<HomePage1> {
                                           : ""),
                                   onTap: () {}),
                             ));*/
-                      });
-                }
-                return const Center(
-                  child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                      Colors.green,
+                        });
+                  }
+                  return const Center(
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        Colors.green,
+                      ),
                     ),
-                  ),
-                );
-              },
-            ),
-          ],
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -64,10 +64,14 @@ class detailProfile extends StatelessWidget {
                           SizedBox(height: 10),
                           Row(
                             children: [
-                              Icon(Icons.location_city),
+                              Icon(
+                                Icons.location_city,
+                                color: Colors.white,
+                              ),
                               Text(
                                 documentSnapshot["Address"],
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 14),
                               ),
                             ],
                           )

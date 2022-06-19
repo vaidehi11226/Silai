@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
+import 'package:silaiproject/screen_user/HomePage1.dart';
 //enum serviceGroup { homeservice, shopservice }
 
 class Appoitnmentstatus extends StatefulWidget {
@@ -144,7 +146,20 @@ class _AppoitnmentstatusState extends State<Appoitnmentstatus> {
       child: MaterialButton(
         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
-        onPressed: () {},
+        onPressed: () {
+          Fluttertoast.showToast(
+            msg: "Appointment Booked Successfully!!!",
+            textColor: Colors.white60,
+            backgroundColor: Colors.black,
+          );
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(
+              builder: (BuildContext context) => HomePage1(),
+            ),
+            (route) => false,
+          );
+        },
         child: Text(
           "Book",
           textAlign: TextAlign.center,

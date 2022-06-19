@@ -53,7 +53,6 @@ class _BillState extends State<Bill> {
             }),
             child: Form(
               key: _formkey,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
               child: ListView(children: [
                 SizedBox(
                     height: 200,
@@ -65,24 +64,37 @@ class _BillState extends State<Bill> {
                   children: [
                     Flexible(
                       child: Text(
-                        "     Bill ID :       ",
+                        "         Bill No :       ",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16),
                       ),
                     ),
                     Flexible(
                       child: Container(
-                        width: 150,
+                        width: 200,
                         height: 20,
-                        child: Text(
-                          '$temp',
+                        child: TextFormField(
+                          controller: billnocontroller,
+                          autofocus: false,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return "Enter bill no";
+                            }
+                            return null;
+                          },
+                          onSaved: (value) {
+                            billnocontroller.text = value!;
+                          },
+                          textInputAction: TextInputAction.next,
+                          keyboardType: TextInputType.number,
+                          //'$temp',
                           style: TextStyle(fontSize: 15),
                         ),
                       ),
                     ),
-                    Flexible(
+                    /*Flexible(
                       child: Container(
-                        width: 470,
+                        width: 400,
                         height: 20,
                         color: Colors.black,
                         child: ElevatedButton(
@@ -100,11 +112,11 @@ class _BillState extends State<Bill> {
                               style: TextStyle(color: Colors.white),
                             )),
                       ),
-                    ),
+                    ),*/
                   ],
                 ),
                 SizedBox(
-                  height: 50,
+                  height: 40,
                 ),
                 Row(
                   children: [
@@ -355,11 +367,13 @@ class _BillState extends State<Bill> {
         final User? user = _auth.currentUser;
         BillModel billadd = new BillModel();
         // billadd.BillNo = temp as String?;
+        billadd.BillNo = billnocontroller.text;
         billadd.username = usernamecontroller.text;
         billadd.usercontact = usercontactcontroller.text;
         billadd.Stichwithprice = Stichwpricecontroller.text;
         billadd.TotalStich = TotalStichcontroller.text;
         billadd.TotalPrice = TotalPriceController.text;
+        billadd.AdvancedPaid = AdvancedPaid.text;
 
         await FirebaseFirestore.instance
             .collection('Bill')

@@ -58,7 +58,6 @@ class _paymentState extends State<payment> {
             }),
             child: Form(
               key: _formkey,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
               child: ListView(
                 children: [
                   SizedBox(

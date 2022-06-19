@@ -194,9 +194,8 @@ class _MyProfileState extends State<MyProfile> {
       textInputAction: TextInputAction.done,
       decoration: InputDecoration(
         border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Color(0xFFfa8919),
-          ),
+          borderRadius: BorderRadius.circular(15.0),
+          borderSide: BorderSide(color: Color(0xFFfa8919)),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(width: 2, color: Color(0xFFfa8919)),
@@ -304,9 +303,8 @@ class _MyProfileState extends State<MyProfile> {
       textInputAction: TextInputAction.done,
       decoration: InputDecoration(
         border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Color(0xFFfa8919),
-          ),
+          borderRadius: BorderRadius.circular(15.0),
+          borderSide: BorderSide(color: Color(0xFFfa8919)),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(width: 2, color: Color(0xFFfa8919)),
@@ -341,9 +339,8 @@ class _MyProfileState extends State<MyProfile> {
       maxLines: 3,
       decoration: InputDecoration(
         border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Color(0xFFfa8919),
-          ),
+          borderRadius: BorderRadius.circular(15.0),
+          borderSide: BorderSide(color: Color(0xFFfa8919)),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(width: 2, color: Color(0xFFfa8919)),
@@ -375,9 +372,8 @@ class _MyProfileState extends State<MyProfile> {
       textInputAction: TextInputAction.done,
       decoration: InputDecoration(
         border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Color(0xFFfa8919),
-          ),
+          borderRadius: BorderRadius.circular(15.0),
+          borderSide: BorderSide(color: Color(0xFFfa8919)),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(width: 2, color: Color(0xFFfa8919)),

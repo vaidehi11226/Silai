@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:silaiproject/admin_screen/Navigation_drawer1.dart';
 import 'package:silaiproject/admin_screen/insideTailorAdmin/AddOrder.dart';
+import 'package:silaiproject/admin_screen/insideTailorAdmin/CustomerList.dart';
 import 'package:silaiproject/admin_screen/insideTailorAdmin/LatestDesign.dart';
 
 class HomePage1 extends StatefulWidget {
@@ -90,8 +91,8 @@ class _HomePage1State extends State<HomePage1> {
         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {
-          //Navigator.push(
-          //  context, MaterialPageRoute(builder: (context) => AddOrder()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => CustomerList()));
         },
         child: Text(
           "Customer List",

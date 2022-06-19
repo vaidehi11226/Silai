@@ -9,7 +9,6 @@ import 'package:silaiproject/admin_screen/insideTailorAdmin/AddOrder.dart';
 import 'package:silaiproject/admin_screen/insideTailorAdmin/myProfile1.dart';
 import 'package:silaiproject/screen_user/HomePage1.dart';
 import 'package:silaiproject/screen_user/Loginscreen.dart';
-import 'package:silaiproject/screen_user/HomePage1.dart';
 import 'package:silaiproject/start.dart';
 
 Future<void> main() async {
@@ -33,7 +32,7 @@ class MyApp extends StatelessWidget {
           height: 1000,
           width: 1000,
         ),
-        nextScreen: Bill(),
+        nextScreen: Start(),
         splashTransition: SplashTransition.scaleTransition,
         backgroundColor: Colors.white,
         duration: 800,
