@@ -123,8 +123,8 @@ class _AppoitnmentstatusState extends State<Appoitnmentstatus> {
     final DateTime? pickedDate = await showDatePicker(
       context: context,
       initialDate: currentDate,
-      firstDate: DateTime(2022, 1, 1),
-      lastDate: DateTime(2030, 1, 1),
+      firstDate: DateTime(2022),
+      lastDate: DateTime(2030),
       //initialEntryMode: TimePickerEntryMode.dial,
       helpText: 'Choose your Date',
       confirmText: 'Choose now',

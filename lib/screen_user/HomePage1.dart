@@ -14,6 +14,7 @@ class HomePage1 extends StatefulWidget {
 class _HomePage1State extends State<HomePage1> {
   //List<Object> _tailorlist = [];
   UserModel usermodel = UserModel();
+  final controller = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -48,162 +49,167 @@ class _HomePage1State extends State<HomePage1> {
             overscroll.disallowIndicator();
             return true;
           }),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 22.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                //onChanged: (value) =>uppdateList(value),
-                '                    DressMakers List',
-                style: TextStyle(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "",
+                  style: TextStyle(
                     color: Colors.black,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 20),
-              StreamBuilder(
-                stream: FirebaseFirestore.instance
-                    .collection("adminProfile")
-                    .snapshots(),
-                builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                  if (snapshot.hasError) {
-                    return Text('Something went wrong');
-                  } else if (snapshot.hasData || snapshot.data != null) {
-                    return ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: snapshot.data?.docs.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          final DocumentSnapshot documentSnapshot =
-                              snapshot.data!.docs[index];
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 3),
-                            child: Padding(
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  //onChanged: (value) =>uppdateList(value),
+                  '        DressMakers List',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 20),
+                StreamBuilder(
+                  stream: FirebaseFirestore.instance
+                      .collection("adminProfile")
+                      .snapshots(),
+                  builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                    if (snapshot.hasError) {
+                      return Text('Something went wrong');
+                    } else if (snapshot.hasData || snapshot.data != null) {
+                      return ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: snapshot.data?.docs.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            final DocumentSnapshot documentSnapshot =
+                                snapshot.data!.docs[index];
+                            return Padding(
                               padding: const EdgeInsets.symmetric(vertical: 3),
-                              child: GestureDetector(
-                                onTap: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => detailProfile(
-                                          documentSnapshot: documentSnapshot)));
-                                },
-                                child: Card(
-                                  color: Colors.black,
-                                  elevation: 3,
-                                  shadowColor: Colors.purpleAccent,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: ListTile(
-                                    leading: Image.network(
-                                        (documentSnapshot != null)
-                                            ? (documentSnapshot['url'])
-                                            : ""),
-                                    /*Container(
-                                    width: 100,
-                                    height: 100,
-                                    decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: NetworkImage(
-                                                (documentSnapshot != null)
-                                                    ? (documentSnapshot['url'])
-                                                    : CircularProgressIndicator(
-                                                        color: Colors.black,
-                                                      )),
-                                            fit: BoxFit.cover),
-                                        border: Border.all(
-                                          color: Colors.black,
-                                          width: 1,
-                                        ),
-                                        borderRadius: BorderRadius.circular(2),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.black,
-                                            offset: Offset(
-                                              0.0,
-                                              0.0,
-                                            ),
-                                            blurRadius: 0.0,
-                                            spreadRadius: 0.0,
-                                          ),
-                                          BoxShadow(
-                                            color: Colors.white,
-                                            offset: const Offset(0.0, 0.0),
-                                            blurRadius: 0.0,
-                                            spreadRadius: 0.0,
-                                          ),
-                                        ]),
-                                  ),*/
-
-                                    title: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 6),
-                                      child: Text(
-                                        (documentSnapshot != null)
-                                            ? (documentSnapshot["shopname"])
-                                            : "",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white),
-                                      ),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 3),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) => detailProfile(
+                                                documentSnapshot:
+                                                    documentSnapshot)));
+                                  },
+                                  child: Card(
+                                    color: Colors.black,
+                                    elevation: 3,
+                                    shadowColor: Colors.purpleAccent,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
                                     ),
-                                    subtitle: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 6),
-                                      child: Text(
-                                        (documentSnapshot != null)
-                                            ? ((documentSnapshot["Address"] !=
-                                                    null)
-                                                ? documentSnapshot["Address"]
-                                                : "")
-                                            : "",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white),
+                                    child: ListTile(
+                                      leading: Image.network(
+                                          (documentSnapshot != null)
+                                              ? (documentSnapshot['url'])
+                                              : ""),
+                                      /*Container(
+                                        width: 100,
+                                        height: 100,
+                                        decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                                image: NetworkImage(
+                                                    (documentSnapshot != null)
+                                                        ? (documentSnapshot['url'])
+                                                        : CircularProgressIndicator(
+                                                            color: Colors.black,
+                                                          )),
+                                                fit: BoxFit.cover),
+                                            border: Border.all(
+                                              color: Colors.black,
+                                              width: 1,
+                                            ),
+                                            borderRadius: BorderRadius.circular(2),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.black,
+                                                offset: Offset(
+                                                  0.0,
+                                                  0.0,
+                                                ),
+                                                blurRadius: 0.0,
+                                                spreadRadius: 0.0,
+                                              ),
+                                              BoxShadow(
+                                                color: Colors.white,
+                                                offset: const Offset(0.0, 0.0),
+                                                blurRadius: 0.0,
+                                                spreadRadius: 0.0,
+                                              ),
+                                            ]),
+                                      ),*/
+
+                                      title: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 6),
+                                        child: Text(
+                                          (documentSnapshot != null)
+                                              ? (documentSnapshot["shopname"])
+                                              : "",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white),
+                                        ),
+                                      ),
+                                      subtitle: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 6),
+                                        child: Text(
+                                          (documentSnapshot != null)
+                                              ? ((documentSnapshot["Address"] !=
+                                                      null)
+                                                  ? documentSnapshot["Address"]
+                                                  : "")
+                                              : "",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white),
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          );
-                          /*return Dismissible(
-                            key: Key(index.toString()),
-                            child: Card(
-                              elevation: 4,
-                              child: ListTile(
-                                  title: Text((documentSnapshot != null)
-                                      ? (documentSnapshot["shopname"])
-                                      : ""),
-                                  subtitle: Text((documentSnapshot != null)
-                                      ? ((documentSnapshot["Address"] != null)
-                                          ? documentSnapshot["Address"]
-                                          : "")
-                                      : ""),
-                                  trailing: Image.network(
-                                      (documentSnapshot != null)
-                                          ? (documentSnapshot['url'])
+                            );
+                            /*return Dismissible(
+                                key: Key(index.toString()),
+                                child: Card(
+                                  elevation: 4,
+                                  child: ListTile(
+                                      title: Text((documentSnapshot != null)
+                                          ? (documentSnapshot["shopname"])
                                           : ""),
-                                  onTap: () {}),
-                            ));*/
-                        });
-                  }
-                  return const Center(
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        Colors.green,
+                                      subtitle: Text((documentSnapshot != null)
+                                          ? ((documentSnapshot["Address"] != null)
+                                              ? documentSnapshot["Address"]
+                                              : "")
+                                          : ""),
+                                      trailing: Image.network(
+                                          (documentSnapshot != null)
+                                              ? (documentSnapshot['url'])
+                                              : ""),
+                                      onTap: () {}),
+                                ));*/
+                          });
+                    }
+                    return const Center(
+                      child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          Colors.green,
+                        ),
                       ),
-                    ),
-                  );
-                },
-              ),
-            ],
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

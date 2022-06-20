@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:silaiproject/admin_screen/AfterMesurements/FemaleMeasurements.dart';
 import 'package:silaiproject/admin_screen/AfterMesurements/measurebutton.dart';
 import 'package:silaiproject/model/addordermodel.dart';
 
@@ -153,7 +154,7 @@ class _AddOrderState extends State<AddOrder> {
                         },
                       ),
                       Text(
-                        "Goan",
+                        "Gown",
                       ),
                       Checkbox(
                         value: value3,
@@ -254,7 +255,7 @@ class _AddOrderState extends State<AddOrder> {
                           },
                         ),
                         Text(
-                          "Paticoat",
+                          "Petticoat",
                         ),
                         Checkbox(
                           value: value9,
@@ -533,7 +534,7 @@ class _AddOrderState extends State<AddOrder> {
         Fluttertoast.showToast(msg: "Details added to Database :) ");
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const mesureButton()),
+          MaterialPageRoute(builder: (context) => const measurements()),
         );
       } catch (error) {
         Fluttertoast.showToast(msg: "Please enter details");

@@ -20,6 +20,15 @@ class _StartState extends State<Start> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            SizedBox(
+                height: 300,
+                child: Image.asset(
+                  "images/startimage.png",
+                  fit: BoxFit.contain,
+                )),
+            SizedBox(
+              height: 40,
+            ),
             RaisedButton(
               child: Text(
                 'Admin Login',
@@ -29,14 +38,14 @@ class _StartState extends State<Start> {
               color: Color(0xFFfa8919),
               textColor: Colors.black,
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                  borderRadius: BorderRadius.all(Radius.circular(40.0))),
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Loginscreen()));
               },
             ),
             SizedBox(
-              height: 70,
+              height: 50,
             ),
             RaisedButton(
               child: Text(
@@ -47,7 +56,7 @@ class _StartState extends State<Start> {
               color: Color(0xFFfa8919),
               textColor: Colors.black,
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                  borderRadius: BorderRadius.all(Radius.circular(40.0))),
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => LoginUser()));

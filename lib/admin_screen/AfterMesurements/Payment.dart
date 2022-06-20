@@ -26,11 +26,11 @@ class _paymentState extends State<payment> {
   List<String> cloth = <String>[
     'Blouse',
     'Suit',
-    'Gaon',
+    'Gown',
     'Burkha',
     'Poshak',
     'ChaniyaCholi',
-    'Paticoat',
+    'Petticoat',
     'Kurti',
     'Nothing',
   ];
