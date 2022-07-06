@@ -404,7 +404,7 @@ class _AddOrderState extends State<AddOrder> {
         return null;
       },
       onSaved: (value) {
-        Namecontroller.text = value!;
+        ClothMaterialcontroller.text = value!;
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
@@ -437,7 +437,7 @@ class _AddOrderState extends State<AddOrder> {
         return null;
       },
       onSaved: (value) {
-        Namecontroller.text = value!;
+        DueDateController.text = value!;
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
@@ -470,7 +470,7 @@ class _AddOrderState extends State<AddOrder> {
         return null;
       },
       onSaved: (value) {
-        Namecontroller.text = value!;
+        SelectYourStichcontroller.text = value!;
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(

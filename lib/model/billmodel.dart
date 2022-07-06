@@ -6,6 +6,7 @@ class BillModel {
   String? TotalStich;
   String? TotalPrice;
   String? AdvancedPaid;
+  String? Customizeurl;
 
   BillModel({
     this.BillNo,
@@ -15,6 +16,7 @@ class BillModel {
     this.TotalStich,
     this.TotalPrice,
     this.AdvancedPaid,
+    this.Customizeurl,
   });
 
   factory BillModel.fromMap(map) {
@@ -26,6 +28,7 @@ class BillModel {
       TotalStich: map['totalStich'],
       TotalPrice: map['totalPrice'],
       AdvancedPaid: map['advancepaid'],
+      Customizeurl: map['customizeurl'],
     );
   }
   Map<String, dynamic> toMap() {
@@ -37,6 +40,7 @@ class BillModel {
       'totalStich': TotalStich,
       'totalPrice': TotalPrice,
       'advancepaid': AdvancedPaid,
+      'customizeurl': Customizeurl,
     };
   }
 }
