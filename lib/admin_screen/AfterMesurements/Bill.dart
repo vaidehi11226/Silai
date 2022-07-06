@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:image_picker/image_picker.dart';
 import 'dart:math';
-
+import 'dart:io' as io;
 import 'package:silaiproject/admin_screen/HomePage1.dart';
 import 'package:silaiproject/model/billmodel.dart';
 
@@ -15,7 +17,10 @@ class Bill extends StatefulWidget {
 }
 
 class _BillState extends State<Bill> {
+  XFile? _imagefile;
   var temp = 0;
+  bool _isLoading = false;
+  String? url;
   bool _autovalidate = false;
   final _formkey = GlobalKey<FormState>();
 
@@ -325,6 +330,12 @@ class _BillState extends State<Bill> {
                     ),
                   ],
                 ),
+                SizedBox(height: 40),
+                Text(
+                  'Customization',
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+                imageProfile(),
                 SizedBox(
                   height: 70,
                 ),
@@ -335,6 +346,74 @@ class _BillState extends State<Bill> {
         ),
       ),
     );
+  }
+
+  Widget imageProfile() {
+    return Center(
+      child: Stack(
+        children: <Widget>[
+          InkWell(
+            onTap: () {
+              showModalBottomSheet(
+                context: context,
+                builder: ((builder) => bottomSheet()),
+              );
+            },
+            child: Container(
+              width: double.infinity,
+              height: 150.0,
+              decoration:
+                  BoxDecoration(border: Border.all(color: Colors.black)),
+              child: _imagefile != null && _imagefile!.path.isNotEmpty
+                  ? Image.file(
+                      io.File(_imagefile!.path),
+                      fit: BoxFit.cover,
+                    )
+                  : Icon(Icons.add_a_photo_outlined),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget bottomSheet() {
+    return Container(
+        height: 100.0,
+        width: MediaQuery.of(context).size.width,
+        margin: EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 20,
+        ),
+        child: Column(children: <Widget>[
+          Text(
+            "Customization photo",
+            style: TextStyle(
+              fontSize: 20.0,
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          FlatButton.icon(
+            icon: Icon(Icons.image),
+            onPressed: () async {
+              _imagefile = await imagePicker();
+              if (_imagefile != null && _imagefile!.path.isNotEmpty) {
+                setState(() {});
+              }
+            },
+            label: Text("Gallery"),
+          ),
+        ])
+        //],
+        //),
+
+        );
+  }
+
+  Future<XFile?> imagePicker() async {
+    return await ImagePicker().pickImage(source: ImageSource.gallery);
   }
 
   Widget Save() {
@@ -362,30 +441,49 @@ class _BillState extends State<Bill> {
     final isValid = _formkey.currentState!.validate();
     var date = DateTime.now().toString();
     if (isValid) {
-      _formkey.currentState!.save();
+      _formkey.currentState!.validate();
       try {
-        final User? user = _auth.currentUser;
-        BillModel billadd = new BillModel();
-        // billadd.BillNo = temp as String?;
-        billadd.BillNo = billnocontroller.text;
-        billadd.username = usernamecontroller.text;
-        billadd.usercontact = usercontactcontroller.text;
-        billadd.Stichwithprice = Stichwpricecontroller.text;
-        billadd.TotalStich = TotalStichcontroller.text;
-        billadd.TotalPrice = TotalPriceController.text;
-        billadd.AdvancedPaid = AdvancedPaid.text;
+        if (_imagefile == null) {
+          Text('Please Select an image');
+        } else {
+          setState(() {
+            _isLoading == true;
+          });
+          final ref = FirebaseStorage.instance
+              .ref()
+              .child('/Profile Image')
+              .child(_imagefile!.path.toString());
 
-        await FirebaseFirestore.instance
-            .collection('Bill')
-            .doc(user?.uid)
-            .set(billadd.toMap());
-        Fluttertoast.showToast(msg: "Details added to Database :) ");
-        Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(builder: (context) => HomePage1()),
-            (route) => false);
+          await ref.putFile(io.File(_imagefile!.path));
+          url = await ref.getDownloadURL();
+          final User? user = _auth.currentUser;
+          BillModel billadd = new BillModel();
+          // billadd.BillNo = temp as String?;
+          billadd.BillNo = billnocontroller.text;
+          billadd.username = usernamecontroller.text;
+          billadd.usercontact = usercontactcontroller.text;
+          billadd.Stichwithprice = Stichwpricecontroller.text;
+          billadd.TotalStich = TotalStichcontroller.text;
+          billadd.TotalPrice = TotalPriceController.text;
+          billadd.AdvancedPaid = AdvancedPaid.text;
+          billadd.Customizeurl = url;
+
+          await FirebaseFirestore.instance
+              .collection('Bill')
+              .doc(user?.uid)
+              .set(billadd.toMap());
+          Fluttertoast.showToast(msg: "Details added to Database :) ");
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage1()),
+              (route) => false);
+        }
       } catch (error) {
-        Fluttertoast.showToast(msg: "Please enter details");
+        print('error occured ${error}');
+      } finally {
+        setState(() {
+          _isLoading = false;
+        });
       }
     }
   }
