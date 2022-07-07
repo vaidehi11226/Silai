@@ -308,7 +308,7 @@ class _paymentState extends State<payment> {
           return null;
         },
         onSaved: (value) {
-          PriceController1.text = value!;
+          PriceController2.text = value!;
         },
         textInputAction: TextInputAction.next,
         keyboardType: TextInputType.number,

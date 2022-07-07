@@ -44,7 +44,7 @@ class _MyaccountState extends State<Myaccount> {
         backgroundColor: Color(0xFFfa8919),
         iconTheme: IconThemeData(color: Colors.black),
         title: Text(
-          "Account",
+          "      Account",
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
