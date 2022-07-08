@@ -286,7 +286,7 @@ class _RegisterUserState extends State<RegisterUser> {
               padding: const EdgeInsets.all(8.0),
               child: Form(
                 key: _formkey,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
+                //autovalidateMode: AutovalidateMode.onUserInteraction,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,

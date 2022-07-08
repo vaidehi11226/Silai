@@ -63,41 +63,6 @@ class _LoginscreenState extends State<Loginscreen> {
         ),
       ),
     );
-
-    /*final ContactField = TextFormField(
-      autofocus: false,
-      controller: ContactEditingController,
-      keyboardType: TextInputType.number,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return "Please enter contact no.";
-        }
-        //reg expression for email validation
-        if (value.length != 10) {
-          return "Mobile Number must be of 10 digit";
-        }
-      },
-      onSaved: (value) {
-        ContactEditingController.text = value!;
-      },
-      textInputAction: TextInputAction.next,
-      decoration: InputDecoration(
-        prefixIcon: Icon(Icons.phone),
-        contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-        hintText: "Contact",
-        filled: true,
-        fillColor: Colors.white,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(color: Color(0xFFfa8919)),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 2, color: Color(0xFFfa8919)),
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-      ),
-    );*/
-
     final passwordField = TextFormField(
       autofocus: false,
       controller: passwordController,
@@ -179,7 +144,7 @@ class _LoginscreenState extends State<Loginscreen> {
               padding: const EdgeInsets.all(8.0),
               child: Form(
                   key: _formkey,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  //autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,

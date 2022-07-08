@@ -110,42 +110,6 @@ class _HomePage1State extends State<HomePage1> {
                                           (documentSnapshot != null)
                                               ? (documentSnapshot['url'])
                                               : ""),
-                                      /*Container(
-                                        width: 100,
-                                        height: 100,
-                                        decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                image: NetworkImage(
-                                                    (documentSnapshot != null)
-                                                        ? (documentSnapshot['url'])
-                                                        : CircularProgressIndicator(
-                                                            color: Colors.black,
-                                                          )),
-                                                fit: BoxFit.cover),
-                                            border: Border.all(
-                                              color: Colors.black,
-                                              width: 1,
-                                            ),
-                                            borderRadius: BorderRadius.circular(2),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: Colors.black,
-                                                offset: Offset(
-                                                  0.0,
-                                                  0.0,
-                                                ),
-                                                blurRadius: 0.0,
-                                                spreadRadius: 0.0,
-                                              ),
-                                              BoxShadow(
-                                                color: Colors.white,
-                                                offset: const Offset(0.0, 0.0),
-                                                blurRadius: 0.0,
-                                                spreadRadius: 0.0,
-                                              ),
-                                            ]),
-                                      ),*/
-
                                       title: Padding(
                                         padding: const EdgeInsets.symmetric(
                                             vertical: 6),
@@ -178,25 +142,6 @@ class _HomePage1State extends State<HomePage1> {
                                 ),
                               ),
                             );
-                            /*return Dismissible(
-                                key: Key(index.toString()),
-                                child: Card(
-                                  elevation: 4,
-                                  child: ListTile(
-                                      title: Text((documentSnapshot != null)
-                                          ? (documentSnapshot["shopname"])
-                                          : ""),
-                                      subtitle: Text((documentSnapshot != null)
-                                          ? ((documentSnapshot["Address"] != null)
-                                              ? documentSnapshot["Address"]
-                                              : "")
-                                          : ""),
-                                      trailing: Image.network(
-                                          (documentSnapshot != null)
-                                              ? (documentSnapshot['url'])
-                                              : ""),
-                                      onTap: () {}),
-                                ));*/
                           });
                     }
                     return const Center(

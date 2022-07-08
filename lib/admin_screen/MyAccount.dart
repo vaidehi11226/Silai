@@ -76,31 +76,6 @@ class _MyaccountState extends State<Myaccount> {
                     fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 20),
-              /*StreamBuilder(
-                  stream: FirebaseFirestore.instance
-                      .collection("adminProfile")
-                      .snapshots(),
-                  builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                    if (snapshot.hasError) {
-                      return Text('Something went wrong');
-                    } else if (snapshot.hasData || snapshot.data != null) {
-                      return Column(
-                        children: [
-                          // CircleAvatar(
-                          // child: Image.network(
-                          //   (documentSnapshot != null) ? (documentSnapshot['url']) : ""),
-                          //),
-                        ],
-                      );
-                    }
-                    return const Center(
-                      child: CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(
-                          Colors.green,
-                        ),
-                      ),
-                    );
-                  }),*/
             ],
           ),
         ),

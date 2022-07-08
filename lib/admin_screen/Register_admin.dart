@@ -219,7 +219,7 @@ class _RegisterAdminState extends State<RegisterAdmin> {
               padding: const EdgeInsets.all(8.0),
               child: Form(
                 key: _formkey,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
+                //autovalidateMode: AutovalidateMode.onUserInteraction,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,

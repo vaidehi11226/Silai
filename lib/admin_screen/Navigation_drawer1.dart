@@ -42,7 +42,7 @@ class NavigationDrawer1 extends StatelessWidget {
               DrawerItem(
                 name: 'My Account',
                 icon: Icons.account_circle,
-                onPressed: () => onItemPressed(context, index: 1),
+                onPressed: () {},
               ),
               SizedBox(height: 30),
               Divider(
@@ -56,25 +56,25 @@ class NavigationDrawer1 extends StatelessWidget {
               DrawerItem(
                 name: 'Upcoming due',
                 icon: Icons.notification_add,
-                onPressed: () => onItemPressed(context, index: 2),
+                onPressed: () {},
               ),
               SizedBox(height: 30),
               DrawerItem(
                 name: 'Contact Support',
                 icon: Icons.contact_support_rounded,
-                onPressed: () => onItemPressed(context, index: 3),
+                onPressed: () => onItemPressed(context, index: 1),
               ),
               SizedBox(height: 30),
               DrawerItem(
                 name: 'AboutUs',
                 icon: Icons.info,
-                onPressed: () => onItemPressed(context, index: 4),
+                onPressed: () => onItemPressed(context, index: 2),
               ),
               SizedBox(height: 30),
               DrawerItem(
                 name: 'Logout',
                 icon: Icons.logout,
-                onPressed: () => onItemPressed(context, index: 5),
+                onPressed: () => onItemPressed(context, index: 3),
               ),
             ],
           ),
@@ -91,23 +91,21 @@ class NavigationDrawer1 extends StatelessWidget {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => HomePage1()));
         break;
+      // case 1:
+      // Navigator.push(context, MaterialPageRoute(builder: (context) {}));
+      //break;
+      //case 2:
+      //Navigator.push(context, MaterialPageRoute(builder: (context) {}));
+      //break;
       case 1:
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Myaccount()));
-        break;
-      case 2:
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => upcomingdue()));
-        break;
-      case 3:
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => contactstatus()));
         break;
-      case 4:
+      case 2:
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => AboutUs()));
         break;
-      case 5:
+      case 3:
         Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(
